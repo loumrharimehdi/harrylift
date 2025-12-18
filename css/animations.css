@@ -477,3 +477,246 @@ html {
     background-size: 200% auto;
     animation: shimmer 3s linear infinite;
 }
+
+/* ============== TROPICAL ANIMATIONS ============== */
+
+/* Fish swimming animation */
+@keyframes fishSwim {
+    0% {
+        transform: translateX(-100%) scaleX(1);
+    }
+
+    49% {
+        transform: translateX(100vw) scaleX(1);
+    }
+
+    50% {
+        transform: translateX(100vw) scaleX(-1);
+    }
+
+    100% {
+        transform: translateX(-100%) scaleX(-1);
+    }
+}
+
+/* Shell sparkle effect */
+@keyframes shellSparkle {
+
+    0%,
+    100% {
+        filter: brightness(1) drop-shadow(0 0 0 transparent);
+    }
+
+    50% {
+        filter: brightness(1.3) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+    }
+}
+
+/* Coconut drop animation */
+@keyframes coconutDrop {
+
+    0%,
+    90%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    92% {
+        transform: translateY(5px) rotate(5deg);
+    }
+
+    94% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    96% {
+        transform: translateY(3px) rotate(2deg);
+    }
+
+    98% {
+        transform: translateY(0) rotate(-1deg);
+    }
+}
+
+/* Tropical flower bloom */
+@keyframes flowerBloom {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    50% {
+        transform: scale(1.05) rotate(-3deg);
+    }
+
+    75% {
+        transform: scale(1.15) rotate(2deg);
+    }
+}
+
+/* Caribbean breeze effect */
+@keyframes caribbeanBreeze {
+
+    0%,
+    100% {
+        transform: translateX(0) skewX(0deg);
+    }
+
+    25% {
+        transform: translateX(3px) skewX(1deg);
+    }
+
+    50% {
+        transform: translateX(-2px) skewX(-1deg);
+    }
+
+    75% {
+        transform: translateX(2px) skewX(0.5deg);
+    }
+}
+
+/* Sun flare animation */
+@keyframes sunFlare {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 165, 0, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 0 80px rgba(255, 165, 0, 0.4), 0 0 120px rgba(255, 140, 0, 0.2);
+    }
+}
+
+/* Water ripple effect */
+@keyframes waterRipple {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+}
+
+/* Fishing rod cast */
+@keyframes fishingCast {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(15deg);
+    }
+}
+
+/* Seagull fly */
+@keyframes seagullFly {
+    0% {
+        transform: translateX(-100px) translateY(0);
+    }
+
+    25% {
+        transform: translateX(25vw) translateY(-20px);
+    }
+
+    50% {
+        transform: translateX(50vw) translateY(10px);
+    }
+
+    75% {
+        transform: translateX(75vw) translateY(-15px);
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 100px)) translateY(5px);
+    }
+}
+
+/* Tropical card hover */
+.method-step:hover,
+.pricing-card:hover,
+.testimonial-card:hover,
+.faq-item:hover {
+    animation: caribbeanBreeze 0.5s ease-out;
+}
+
+/* Wave marquee emoji animations */
+.wave-marquee-track span:nth-child(1) {
+    animation: emojiFloat 2.5s ease-in-out infinite;
+}
+
+.wave-marquee-track span:nth-child(2) {
+    animation: shellSparkle 3s ease-in-out infinite 0.2s;
+}
+
+.wave-marquee-track span:nth-child(3) {
+    animation: emojiFloat 2.8s ease-in-out infinite 0.4s;
+}
+
+.wave-marquee-track span:nth-child(4) {
+    animation: flowerBloom 4s ease-in-out infinite 0.6s;
+}
+
+.wave-marquee-track span:nth-child(5) {
+    animation: emojiFloat 2.6s ease-in-out infinite 0.8s;
+}
+
+.wave-marquee-track span:nth-child(6) {
+    animation: shellSparkle 3.5s ease-in-out infinite 1s;
+}
+
+.wave-marquee-track span:nth-child(7) {
+    animation: emojiFloat 2.4s ease-in-out infinite 1.2s;
+}
+
+.wave-marquee-track span:nth-child(8) {
+    animation: flowerBloom 3.8s ease-in-out infinite 1.4s;
+}
+
+/* Section CTA button special animation */
+.section-cta .btn-primary {
+    animation: sunFlare 3s ease-in-out infinite, pulseGlow 2s ease-in-out infinite;
+}
+
+.section-cta .btn-primary:hover {
+    animation: none;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 40px rgba(64, 224, 208, 0.5);
+}
+
+/* About CTA animation */
+.about-cta .btn-primary {
+    animation: sunFlare 4s ease-in-out infinite;
+}
+
+/* Floating decorations for sections */
+.problem-solution::before,
+.method::before,
+.testimonials::before,
+.faq::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(64, 224, 208, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(255, 179, 71, 0.05) 0%, transparent 50%);
+}
