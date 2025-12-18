@@ -45,6 +45,14 @@
   <!-- Sand Click Effect Container -->
   <div id="sandEffectContainer"></div>
 
+  <!-- Rain Effect Elements (for dark/rain mode) -->
+  <div class="rain-container" id="rainContainer"></div>
+  <div class="lightning-flash"></div>
+  <div class="rain-mode-message">
+    🌧️ Oh non, il pleut à Lyon aujourd'hui...<br>
+    <small>Clique sur ☀️ pour retrouver le soleil des Antilles !</small>
+  </div>
+
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -64,6 +72,12 @@
         <a href="#bilan" class="btn btn-primary btn-sm">
           🏖️ Bilan Gratuit
         </a>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+          <span class="theme-icon sun">☀️</span>
+          <span class="theme-icon rain">🌧️</span>
+        </button>
       </div>
 
       <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
@@ -154,11 +168,6 @@
           <a href="#method" class="btn btn-secondary btn-lg">
             Découvrir la méthode
           </a>
-        </div>
-
-        <div class="hero-countdown">
-          <span>⏰</span>
-          Plus que <span class="timer" id="countdown">48:00:00</span> pour profiter de l'offre
         </div>
       </div>
     </div>

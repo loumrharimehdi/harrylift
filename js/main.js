@@ -70,42 +70,70 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ============ COUNTDOWN TIMER ============
-    const countdownElement = document.getElementById('countdown');
+    // ============ THEME TOGGLE (SUN/RAIN MODE) ============
+    const themeToggle = document.getElementById('themeToggle');
+    const rainContainer = document.getElementById('rainContainer');
 
-    // Set countdown end time (48 hours from now or stored in localStorage)
-    let endTime = localStorage.getItem('harrylift_countdown_end');
-
-    if (!endTime) {
-        endTime = new Date().getTime() + (48 * 60 * 60 * 1000); // 48 hours
-        localStorage.setItem('harrylift_countdown_end', endTime);
-    } else {
-        endTime = parseInt(endTime);
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('harrylift_theme');
+    if (savedTheme === 'rain') {
+        document.body.classList.add('rain-mode');
+        createRainDrops();
     }
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = endTime - now;
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            document.body.classList.toggle('rain-mode');
 
-        if (distance < 0) {
-            // Reset countdown
-            endTime = new Date().getTime() + (48 * 60 * 60 * 1000);
-            localStorage.setItem('harrylift_countdown_end', endTime);
-            return;
+            if (document.body.classList.contains('rain-mode')) {
+                localStorage.setItem('harrylift_theme', 'rain');
+                createRainDrops();
+                // Play thunder sound effect (optional)
+                console.log('%c⚡ BOOOM! Il pleut à Lyon...', 'font-size: 16px; color: #74b9ff;');
+            } else {
+                localStorage.setItem('harrylift_theme', 'sun');
+                clearRainDrops();
+                console.log('%c☀️ Le soleil des Antilles est de retour !', 'font-size: 16px; color: #FFB347;');
+            }
+        });
+    }
+
+    // Create rain drops
+    function createRainDrops() {
+        if (!rainContainer) return;
+
+        // Clear existing drops
+        rainContainer.innerHTML = '';
+
+        const dropCount = window.innerWidth < 768 ? 50 : 100;
+
+        for (let i = 0; i < dropCount; i++) {
+            const drop = document.createElement('div');
+            drop.className = 'rain-drop';
+
+            // Random position
+            drop.style.left = Math.random() * 100 + '%';
+
+            // Random height
+            drop.style.height = (Math.random() * 20 + 10) + 'px';
+
+            // Random animation duration
+            drop.style.animationDuration = (Math.random() * 0.5 + 0.5) + 's';
+
+            // Random delay
+            drop.style.animationDelay = (Math.random() * 2) + 's';
+
+            rainContainer.appendChild(drop);
         }
-
-        const hours = Math.floor(distance / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownElement.textContent =
-            String(hours).padStart(2, '0') + ':' +
-            String(minutes).padStart(2, '0') + ':' +
-            String(seconds).padStart(2, '0');
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    // Clear rain drops
+    function clearRainDrops() {
+        if (rainContainer) {
+            rainContainer.innerHTML = '';
+        }
+    }
 
     // ============ SCROLL REVEAL ANIMATION ============
     const revealElements = document.querySelectorAll('.reveal');
