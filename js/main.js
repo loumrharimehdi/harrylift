@@ -471,6 +471,101 @@ document.addEventListener('DOMContentLoaded', function () {
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
+    // ============ TROLL MODALS (LEAD MAGNET & CONTACT FORM) ============
+    const leadMagnetForm = document.getElementById('leadMagnetForm');
+    const contactForm = document.getElementById('contactForm');
+    const trollModal = document.getElementById('trollModal');
+    const trollModal2 = document.getElementById('trollModal2');
+    const trollModalClose = document.getElementById('trollModalClose');
+    const trollModal2Close = document.getElementById('trollModal2Close');
+    const trollInsist = document.getElementById('trollInsist');
+    const trollGiveUp = document.getElementById('trollGiveUp');
+    const trollUserName = document.getElementById('trollUserName');
+    const trollFinal = document.getElementById('trollFinal');
+
+    let userName = 'champion';
+
+    // Lead Magnet Form - TROLL
+    if (leadMagnetForm) {
+        leadMagnetForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('leadName');
+            if (nameInput && nameInput.value) {
+                userName = nameInput.value;
+                trollUserName.textContent = userName;
+            }
+            trollModal.classList.add('active');
+        });
+    }
+
+    // Contact Form - TROLL
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('contactName');
+            if (nameInput && nameInput.value) {
+                userName = nameInput.value;
+                trollUserName.textContent = userName;
+            }
+            trollModal.classList.add('active');
+        });
+    }
+
+    // Close modal 1
+    if (trollModalClose) {
+        trollModalClose.addEventListener('click', function () {
+            trollModal.classList.remove('active');
+        });
+    }
+
+    // Click outside modal to close
+    if (trollModal) {
+        trollModal.addEventListener('click', function (e) {
+            if (e.target === trollModal) {
+                trollModal.classList.remove('active');
+            }
+        });
+    }
+
+    // Insist on PDF - show second modal
+    if (trollInsist) {
+        trollInsist.addEventListener('click', function () {
+            trollModal.classList.remove('active');
+            setTimeout(() => {
+                trollModal2.classList.add('active');
+            }, 300);
+        });
+    }
+
+    // Close modal 2
+    if (trollModal2Close) {
+        trollModal2Close.addEventListener('click', function () {
+            trollModal2.classList.remove('active');
+        });
+    }
+
+    // Click outside modal 2 to close
+    if (trollModal2) {
+        trollModal2.addEventListener('click', function (e) {
+            if (e.target === trollModal2) {
+                trollModal2.classList.remove('active');
+            }
+        });
+    }
+
+    // Give up - show final message
+    if (trollGiveUp) {
+        trollGiveUp.addEventListener('click', function () {
+            trollFinal.style.display = 'block';
+            trollGiveUp.textContent = '✅ C\'est noté !';
+            trollGiveUp.disabled = true;
+
+            // Log for fun
+            console.log('%c📧 ' + userName + ' a vraiment voulu le PDF...', 'font-size: 14px; color: #FF6B6B;');
+            console.log('%c💡 Mais on sait tous qu\'un call serait mieux !', 'font-size: 12px; color: #40E0D0;');
+        });
+    }
+
     // ============ CONSOLE WELCOME MESSAGE ============
     console.log('%c🌴 Harry Lift - Summer Body Edition 🏖️',
         'font-size: 20px; font-weight: bold; color: #1E9B8F;');
@@ -479,3 +574,4 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('%cDéveloppé avec ☀️ par Loumrhari Agency',
         'font-size: 12px; color: #87CEEB;');
 });
+

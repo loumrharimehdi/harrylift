@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Découvre les secrets de la mentalité du champion pour rester motivé et atteindre tes objectifs fitness avec Harry Lift, coach sportif à Lyon.">
+    <meta name="keywords" content="motivation, mentalité, mindset, coach sportif Lyon, Harry Lift, discipline">
+    <meta name="author" content="Harry Lift">
+
+    <meta property="og:title" content="La Mentalité du Champion : Comment Rester Motivé | Harry Lift">
+    <meta property="og:description"
+        content="Le secret de mes clients qui réussissent ? Leur mindset. Je te partage les techniques qui changent tout.">
+    <meta property="og:type" content="article">
+
+    <title>La Mentalité du Champion : Comment Rester Motivé | Harry Lift</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        .blog-article {
+            padding-top: 120px;
+            padding-bottom: var(--space-20);
+            background: var(--white);
+            min-height: 100vh;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: var(--space-12);
+        }
+
+        .article-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
+            color: var(--white);
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: var(--space-4);
+        }
+
+        .article-title {
+            font-size: var(--text-5xl);
+            margin-bottom: var(--space-4);
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-6);
+            color: var(--gray-warm);
+            font-size: var(--text-sm);
+        }
+
+        .article-hero-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto var(--space-12);
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
+            border-radius: var(--radius-2xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .article-content {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: var(--text-lg);
+            line-height: 1.9;
+            color: var(--gray-warm);
+        }
+
+        .article-content h2 {
+            color: var(--black-soft);
+            margin: var(--space-12) 0 var(--space-6);
+            font-size: var(--text-3xl);
+        }
+
+        .article-content h3 {
+            color: var(--sea-deep);
+            margin: var(--space-8) 0 var(--space-4);
+        }
+
+        .article-content p {
+            margin-bottom: var(--space-6);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: var(--space-6);
+            padding-left: var(--space-8);
+        }
+
+        .article-content li {
+            margin-bottom: var(--space-3);
+        }
+
+        .article-content blockquote {
+            background: var(--sand-light);
+            border-left: 4px solid var(--sea-turquoise);
+            padding: var(--space-6);
+            margin: var(--space-8) 0;
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+            font-style: italic;
+        }
+
+        .article-content strong {
+            color: var(--black-soft);
+        }
+
+        .mindset-card {
+            background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%);
+            padding: var(--space-6);
+            border-radius: var(--radius-xl);
+            margin: var(--space-6) 0;
+            border-left: 4px solid #8B5CF6;
+        }
+
+        .story-card {
+            background: var(--sand-light);
+            padding: var(--space-6);
+            border-radius: var(--radius-xl);
+            margin: var(--space-6) 0;
+        }
+
+        .article-cta {
+            background: var(--gradient-cta);
+            padding: var(--space-12);
+            border-radius: var(--radius-2xl);
+            text-align: center;
+            margin-top: var(--space-16);
+            color: var(--white);
+        }
+
+        .article-cta h3 {
+            color: var(--white);
+            margin-bottom: var(--space-4);
+        }
+
+        .article-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-6);
+        }
+
+        .article-cta .btn {
+            background: var(--white);
+            color: var(--sea-deep);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--sea-deep);
+            font-weight: 600;
+            margin-bottom: var(--space-8);
+        }
+
+        .back-link:hover {
+            gap: var(--space-3);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: var(--text-3xl);
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+
+            .article-hero-image {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-logo">
+                <span>🌴</span> Harry Lift
+            </a>
+            <div class="navbar-menu">
+                <a href="../index.html#bilan" class="btn btn-primary btn-sm">
+                    🏖️ Bilan Gratuit
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="container">
+            <a href="../index.html#blog" class="back-link">← Retour aux articles</a>
+
+            <header class="article-header">
+                <span class="article-category">🧠 Motivation</span>
+                <h1 class="article-title">La Mentalité du Champion : Comment Rester Motivé</h1>
+                <div class="article-meta">
+                    <span>📅 5 Décembre 2024</span>
+                    <span>⏱️ 7 min de lecture</span>
+                    <span>✍️ Par Harry Lift</span>
+                </div>
+            </header>
+
+            <div class="article-hero-image">🧠</div>
+
+            <div class="article-content">
+                <p>
+                    Après plus de 9 ans à accompagner des centaines de personnes, j'ai découvert <strong>LE facteur
+                        commun</strong> à toutes les transformations réussies. Ce n'est pas le meilleur programme. Ce
+                    n'est pas le régime parfait.
+                </p>
+
+                <p>
+                    C'est <strong>le mindset</strong>. La mentalité. L'état d'esprit. 🌴
+                </p>
+
+                <p>
+                    Aujourd'hui, je te partage les 5 piliers de la mentalité du champion que j'enseigne à tous mes
+                    clients.
+                </p>
+
+                <h2>🌟 Pilier #1 : Le "Pourquoi" profond</h2>
+
+                <p>
+                    "Je veux perdre 10 kilos" n'est pas un pourquoi. C'est un objectif. Ton vrai pourquoi est la raison
+                    émotionnelle derrière cet objectif.
+                </p>
+
+                <div class="mindset-card">
+                    <strong>Creuse plus profond :</strong><br>
+                    - Pourquoi 10 kilos ? → Pour me sentir mieux dans mon corps<br>
+                    - Pourquoi c'est important ? → Pour avoir confiance à la plage<br>
+                    - Pourquoi ça compte ? → Pour ne plus avoir honte devant ma famille<br>
+                    - Pourquoi maintenant ? → Parce que je veux être un exemple pour mes enfants
+                </div>
+
+                <p>
+                    Quand tu atteins ton vrai "pourquoi", tu trouves une source de motivation inépuisable. Les jours
+                    difficiles, c'est ce pourquoi qui te fera te lever.
+                </p>
+
+                <h2>🌟 Pilier #2 : L'identité avant les objectifs</h2>
+
+                <p>
+                    Ne te fixe pas juste des objectifs. <strong>Deviens la personne qui atteint ces objectifs.</strong>
+                </p>
+
+                <div class="story-card">
+                    <p><strong>Exemple concret :</strong></p>
+                    <p>❌ "Je veux aller à la salle 3 fois par semaine"</p>
+                    <p>✅ "Je SUIS quelqu'un qui s'entraîne régulièrement"</p>
+                    <p>La différence ? Quand tu te vois comme un sportif, manquer une séance devient incohérent avec qui
+                        tu es.</p>
+                </div>
+
+                <h2>🌟 Pilier #3 : La règle des 2 jours</h2>
+
+                <p>
+                    Voici ma règle d'or que je donne à tous mes clients : <strong>Ne rate jamais 2 jours
+                        d'affilée.</strong>
+                </p>
+
+                <p>
+                    Tu as raté ta séance lundi ? OK, ça arrive. Mais mardi, tu y vas quoi qu'il arrive. Tu as craqué sur
+                    la pizza dimanche ? OK. Mais lundi, tu reprends sur de bonnes bases.
+                </p>
+
+                <div class="mindset-card">
+                    <strong>💡 Pourquoi ça marche :</strong> Un écart isolé n'a jamais fait échouer personne. C'est
+                    l'accumulation d'écarts qui crée les problèmes. La règle des 2 jours t'empêche de tomber dans la
+                    spirale négative.
+                </div>
+
+                <h2>🌟 Pilier #4 : Focus sur le processus, pas le résultat</h2>
+
+                <p>
+                    La balance ne bouge pas ? Tes muscles ne poussent pas assez vite ? <strong>Concentre-toi sur ce que
+                        tu contrôles.</strong>
+                </p>
+
+                <ul>
+                    <li>Tu contrôles : tes actions quotidiennes, ton effort à la salle, ce que tu mets dans ton assiette
+                    </li>
+                    <li>Tu ne contrôles pas : le chiffre sur la balance, la vitesse de tes résultats, ta génétique</li>
+                </ul>
+
+                <p>
+                    Chaque jour, pose-toi cette question : "Est-ce que j'ai fait ce que je devais faire ?" Si oui, les
+                    résultats viendront. C'est une question de temps.
+                </p>
+
+                <h2>🌟 Pilier #5 : La gratitude et la célébration</h2>
+
+                <p>
+                    On est tellement focalisés sur ce qu'on veut atteindre qu'on oublie de voir le chemin parcouru.
+                </p>
+
+                <p>
+                    <strong>Célèbre chaque victoire :</strong>
+                </p>
+
+                <ul>
+                    <li>Tu as fait ta séance alors que tu n'en avais pas envie ? 🎉</li>
+                    <li>Tu as résisté au gâteau au bureau ? 🎉</li>
+                    <li>Tu as pris 500g sur ton squat ? 🎉</li>
+                    <li>Tu as bu tes 2 litres d'eau aujourd'hui ? 🎉</li>
+                </ul>
+
+                <p>
+                    Ces petites victoires créent un cercle vertueux de motivation. Plus tu célèbres, plus tu as envie de
+                    continuer.
+                </p>
+
+                <blockquote>
+                    "Le corps atteint ce que l'esprit croit. C'est pour ça que je travaille autant sur le mental que sur
+                    le physique avec mes clients. Under the Caribbean sun, on construit des winners !"<br>
+                    — Harry Lift
+                </blockquote>
+
+                <h2>🎯 En pratique : Ta routine mindset</h2>
+
+                <p>
+                    Voici ce que je recommande à mes clients chaque matin, 5 minutes max :
+                </p>
+
+                <ol>
+                    <li><strong>Rappelle-toi ton POURQUOI</strong> - Visualise-le</li>
+                    <li><strong>Affirme ton identité</strong> - "Je suis quelqu'un qui..."</li>
+                    <li><strong>Liste 3 victoires</strong> de la veille</li>
+                    <li><strong>Définis tes 3 actions</strong> clés du jour</li>
+                </ol>
+
+                <p>
+                    C'est simple, c'est rapide, et ça change tout.
+                </p>
+
+                <div class="article-cta">
+                    <h3>🧠 Tu veux développer ta mentalité de champion ?</h3>
+                    <p>Je ne travaille pas que le physique. On construit aussi le mental ensemble. Réserve ton bilan
+                        gratuit !</p>
+                    <a href="../index.html#bilan" class="btn btn-lg">🏖️ Réserver mon bilan gratuit</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p class="footer-copy">© 2025 Harry Lift. Tous droits réservés.</p>
+                <p class="footer-credit">
+                    Fait avec ☀️ par <a href="https://mehdiloumrhari.agency" target="_blank" rel="noopener">Loumrhari
+                        Agency</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

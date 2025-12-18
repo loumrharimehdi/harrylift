@@ -3068,3 +3068,441 @@ body.rain-mode .hero-title {
 body.rain-mode {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext x='0' y='24' font-size='24'%3E☔%3C/text%3E%3C/svg%3E"), auto;
 }
+
+/* ============== LEAD MAGNET SECTION ============== */
+.lead-magnet {
+  background: var(--gradient-sunset);
+  position: relative;
+}
+
+.lead-magnet-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  background: var(--white);
+  padding: var(--space-12);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-2xl);
+}
+
+@media (max-width: 992px) {
+  .lead-magnet-wrapper {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.lead-magnet-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+  color: var(--white);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.lead-magnet-content h2 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-2);
+}
+
+.lead-magnet-content h3 {
+  font-size: var(--text-xl);
+  color: var(--sea-deep);
+  font-weight: 600;
+  margin-bottom: var(--space-6);
+}
+
+.lead-magnet-benefits {
+  list-style: none;
+  padding: 0;
+}
+
+.lead-magnet-benefits li {
+  padding: var(--space-2) 0;
+  font-size: var(--text-lg);
+  color: var(--gray-warm);
+}
+
+.lead-magnet-form {
+  background: var(--sand-light);
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+}
+
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  color: var(--black-soft);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-4);
+  border: 2px solid var(--sand-medium);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-family: inherit;
+  transition: var(--transition-base);
+  background: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--sea-turquoise);
+  box-shadow: 0 0 0 4px rgba(64, 224, 208, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--gray-light);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.form-note {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--gray-warm);
+  margin-top: var(--space-4);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 576px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============== TROLL MODAL ============== */
+.troll-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-base);
+  padding: var(--space-4);
+}
+
+.troll-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.troll-modal-content {
+  background: var(--white);
+  padding: var(--space-10);
+  border-radius: var(--radius-2xl);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  transform: scale(0.9) translateY(20px);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-2xl);
+}
+
+.troll-modal.active .troll-modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.troll-modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: none;
+  border: none;
+  font-size: var(--text-2xl);
+  cursor: pointer;
+  color: var(--gray-warm);
+  transition: var(--transition-base);
+}
+
+.troll-modal-close:hover {
+  color: var(--black-soft);
+}
+
+.troll-emoji {
+  font-size: 5rem;
+  margin-bottom: var(--space-4);
+}
+
+.troll-modal h2 {
+  margin-bottom: var(--space-4);
+}
+
+.troll-modal p {
+  color: var(--gray-warm);
+  margin-bottom: var(--space-4);
+  line-height: 1.7;
+}
+
+.troll-name {
+  font-size: var(--text-lg);
+  color: var(--sea-deep);
+  font-weight: 600;
+}
+
+.troll-name span {
+  color: var(--sea-turquoise);
+}
+
+.troll-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.troll-final {
+  color: var(--sea-deep);
+  font-weight: 600;
+}
+
+/* ============== CONTACT SECTION ============== */
+.contact-section {
+  background: var(--white);
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info h3 {
+  margin-bottom: var(--space-6);
+  color: var(--sea-deep);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background: var(--sand-light);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-base);
+}
+
+.contact-item:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+}
+
+.contact-item strong {
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.contact-item p {
+  color: var(--gray-warm);
+  margin: 0;
+}
+
+.contact-item a {
+  color: var(--sea-deep);
+  transition: var(--transition-base);
+}
+
+.contact-item a:hover {
+  color: var(--sea-turquoise);
+}
+
+.contact-form {
+  background: var(--sand-light);
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ============== MOBILE ADJUSTMENTS ============== */
+@media (max-width: 768px) {
+
+  /* Hero adjustments */
+  .hero-title {
+    font-size: var(--text-3xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-base);
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  /* Section headers */
+  .section-header h2 {
+    font-size: var(--text-2xl);
+  }
+
+  /* Theme toggle better visibility */
+  .theme-toggle {
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(255, 179, 71, 0.3);
+    border-width: 3px;
+  }
+
+  /* Pricing cards mobile */
+  .pricing-card {
+    padding: var(--space-5);
+  }
+
+  .pricing-badge {
+    font-size: var(--text-xs);
+  }
+
+  /* Transformation cards */
+  .transformation-card {
+    margin-bottom: var(--space-4);
+  }
+
+  .transformation-info {
+    padding: var(--space-4);
+  }
+
+  /* Testimonials */
+  .testimonial-card {
+    padding: var(--space-5);
+  }
+
+  .testimonial-text {
+    font-size: var(--text-sm);
+  }
+
+  /* Blog cards */
+  .blog-card-title {
+    font-size: var(--text-lg);
+  }
+
+  /* Lead magnet */
+  .lead-magnet-wrapper {
+    padding: var(--space-6);
+  }
+
+  .lead-magnet-content h2 {
+    font-size: var(--text-2xl);
+  }
+
+  .lead-magnet-form {
+    padding: var(--space-5);
+  }
+
+  /* Contact form */
+  .contact-form {
+    padding: var(--space-5);
+  }
+
+  /* CTA section */
+  .cta-content {
+    padding: var(--space-8);
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+  }
+
+  /* Subsection headers */
+  .subsection-header h3 {
+    font-size: var(--text-xl);
+    padding: var(--space-2) var(--space-4);
+  }
+
+  /* Method steps */
+  .method-step {
+    padding: var(--space-5);
+  }
+
+  /* FAQ items */
+  .faq-question {
+    font-size: var(--text-base);
+    padding: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Extra small screens */
+  .hero-title {
+    font-size: var(--text-2xl);
+  }
+
+  .hero-badge {
+    font-size: var(--text-xs);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .section {
+    padding: var(--space-12) 0;
+  }
+
+  .pricing-price {
+    font-size: var(--text-3xl);
+  }
+
+  .lead-magnet-badge {
+    font-size: var(--text-xs);
+  }
+
+  .troll-modal-content {
+    padding: var(--space-6);
+  }
+
+  .troll-emoji {
+    font-size: 3rem;
+  }
+
+  .troll-modal h2 {
+    font-size: var(--text-xl);
+  }
+}

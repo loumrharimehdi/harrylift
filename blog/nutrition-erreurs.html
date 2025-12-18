@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Découvre les 5 erreurs de nutrition les plus courantes qui bloquent ta perte de poids et comment les éviter avec Harry Lift, coach sportif à Lyon.">
+    <meta name="keywords" content="nutrition, perte de poids, erreurs alimentation, coach sportif Lyon, Harry Lift">
+    <meta name="author" content="Harry Lift">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="5 Erreurs de Nutrition qui Bloquent ta Perte de Poids | Harry Lift">
+    <meta property="og:description"
+        content="Découvre les erreurs les plus courantes et comment les éviter pour enfin voir des résultats durables.">
+    <meta property="og:type" content="article">
+
+    <title>5 Erreurs de Nutrition qui Bloquent ta Perte de Poids | Harry Lift</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        .blog-article {
+            padding-top: 120px;
+            padding-bottom: var(--space-20);
+            background: var(--white);
+            min-height: 100vh;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: var(--space-12);
+        }
+
+        .article-category {
+            display: inline-block;
+            background: var(--gradient-cta);
+            color: var(--white);
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: var(--space-4);
+        }
+
+        .article-title {
+            font-size: var(--text-5xl);
+            margin-bottom: var(--space-4);
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-6);
+            color: var(--gray-warm);
+            font-size: var(--text-sm);
+        }
+
+        .article-hero-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto var(--space-12);
+            aspect-ratio: 16/9;
+            background: var(--gradient-ocean);
+            border-radius: var(--radius-2xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .article-content {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: var(--text-lg);
+            line-height: 1.9;
+            color: var(--gray-warm);
+        }
+
+        .article-content h2 {
+            color: var(--black-soft);
+            margin: var(--space-12) 0 var(--space-6);
+            font-size: var(--text-3xl);
+        }
+
+        .article-content h3 {
+            color: var(--sea-deep);
+            margin: var(--space-8) 0 var(--space-4);
+        }
+
+        .article-content p {
+            margin-bottom: var(--space-6);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: var(--space-6);
+            padding-left: var(--space-8);
+        }
+
+        .article-content li {
+            margin-bottom: var(--space-3);
+        }
+
+        .article-content blockquote {
+            background: var(--sand-light);
+            border-left: 4px solid var(--sea-turquoise);
+            padding: var(--space-6);
+            margin: var(--space-8) 0;
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+            font-style: italic;
+        }
+
+        .article-content strong {
+            color: var(--black-soft);
+        }
+
+        .error-card {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FED7D7 100%);
+            padding: var(--space-6);
+            border-radius: var(--radius-xl);
+            margin: var(--space-6) 0;
+            border-left: 4px solid #FF6347;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #E6FFFA 0%, #B2F5EA 100%);
+            padding: var(--space-6);
+            border-radius: var(--radius-xl);
+            margin: var(--space-6) 0;
+            border-left: 4px solid var(--sea-turquoise);
+        }
+
+        .article-cta {
+            background: var(--gradient-cta);
+            padding: var(--space-12);
+            border-radius: var(--radius-2xl);
+            text-align: center;
+            margin-top: var(--space-16);
+            color: var(--white);
+        }
+
+        .article-cta h3 {
+            color: var(--white);
+            margin-bottom: var(--space-4);
+        }
+
+        .article-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-6);
+        }
+
+        .article-cta .btn {
+            background: var(--white);
+            color: var(--sea-deep);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--sea-deep);
+            font-weight: 600;
+            margin-bottom: var(--space-8);
+        }
+
+        .back-link:hover {
+            gap: var(--space-3);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: var(--text-3xl);
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+
+            .article-hero-image {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-logo">
+                <span>🌴</span> Harry Lift
+            </a>
+            <div class="navbar-menu">
+                <a href="../index.html#bilan" class="btn btn-primary btn-sm">
+                    🏖️ Bilan Gratuit
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="container">
+            <a href="../index.html#blog" class="back-link">← Retour aux articles</a>
+
+            <header class="article-header">
+                <span class="article-category">🥗 Nutrition</span>
+                <h1 class="article-title">5 Erreurs de Nutrition qui Bloquent ta Perte de Poids</h1>
+                <div class="article-meta">
+                    <span>📅 15 Décembre 2024</span>
+                    <span>⏱️ 8 min de lecture</span>
+                    <span>✍️ Par Harry Lift</span>
+                </div>
+            </header>
+
+            <div class="article-hero-image">🥗</div>
+
+            <div class="article-content">
+                <p>
+                    Après plus de 9 ans de coaching et <strong>500+ transformations réussies</strong>, j'ai identifié
+                    les mêmes erreurs qui reviennent encore et encore chez mes clients. Des erreurs simples mais qui
+                    peuvent complètement bloquer ta progression.
+                </p>
+
+                <p>
+                    Aujourd'hui, je te partage ces 5 erreurs critiques et surtout <strong>comment les corriger</strong>
+                    pour enfin voir des résultats durables. 🌴
+                </p>
+
+                <h2>❌ Erreur #1 : Manger trop peu de calories</h2>
+
+                <div class="error-card">
+                    <strong>Le problème :</strong> Tu penses que moins tu manges, plus tu maigris. Résultat ? Ton
+                    métabolisme ralentit, tu as faim en permanence, et à la moindre occasion, tu craques.
+                </div>
+
+                <p>
+                    Beaucoup de mes clients arrivent en mangeant à peine 1200 calories par jour. Ils ne comprennent pas
+                    pourquoi ils ne perdent plus de poids malgré cette restriction extrême.
+                </p>
+
+                <div class="solution-card">
+                    <strong>✅ La solution :</strong> Crée un déficit calorique modéré de 300-500 calories maximum. C'est
+                    suffisant pour perdre du poids tout en préservant ton métabolisme et ton énergie.
+                </div>
+
+                <h2>❌ Erreur #2 : Négliger les protéines</h2>
+
+                <div class="error-card">
+                    <strong>Le problème :</strong> Tu manges principalement des glucides et des graisses, en oubliant
+                    les protéines. Résultat ? Tu perds du muscle en même temps que la graisse.
+                </div>
+
+                <p>
+                    Les protéines sont essentielles pour maintenir ta masse musculaire pendant une perte de poids. Sans
+                    elles, tu auras peut-être un poids plus bas sur la balance, mais un physique moins tonique.
+                </p>
+
+                <div class="solution-card">
+                    <strong>✅ La solution :</strong> Vise 1.6 à 2g de protéines par kilo de poids de corps. Œufs,
+                    poulet, poisson, légumineuses... Intègre des protéines à chaque repas.
+                </div>
+
+                <h2>❌ Erreur #3 : Éliminer complètement les glucides</h2>
+
+                <div class="error-card">
+                    <strong>Le problème :</strong> Tu as entendu que les glucides font grossir et tu les as bannis.
+                    Résultat ? Fatigue, irritabilité, et performances sportives en chute libre.
+                </div>
+
+                <p>
+                    Les glucides sont le carburant principal de ton corps, surtout si tu fais du sport. Les éliminer
+                    complètement n'est pas viable sur le long terme.
+                </p>
+
+                <div class="solution-card">
+                    <strong>✅ La solution :</strong> Privilégie les glucides complexes (riz, patate douce, flocons
+                    d'avoine) et place-les autour de tes entraînements pour optimiser tes performances.
+                </div>
+
+                <h2>❌ Erreur #4 : Ignorer les calories liquides</h2>
+
+                <div class="error-card">
+                    <strong>Le problème :</strong> Tu fais attention à ce que tu manges mais tu bois des jus de fruits,
+                    des sodas, ou de l'alcool sans y penser. Résultat ? Des centaines de calories invisibles chaque
+                    jour.
+                </div>
+
+                <p>
+                    Un verre de jus d'orange = 120 calories. Une bière = 150 calories. Un café au lait sucré = 200
+                    calories. Ça s'accumule vite !
+                </p>
+
+                <div class="solution-card">
+                    <strong>✅ La solution :</strong> Privilégie l'eau, le thé et le café noir. Réserve les boissons
+                    caloriques pour des occasions spéciales.
+                </div>
+
+                <h2>❌ Erreur #5 : Chercher la perfection</h2>
+
+                <div class="error-card">
+                    <strong>Le problème :</strong> Tu veux manger parfaitement 100% du temps. Au premier écart, tu
+                    abandonnes tout en te disant "j'ai tout gâché".
+                </div>
+
+                <p>
+                    La perfection n'existe pas, et la rechercher crée une pression inutile qui mène souvent à l'abandon
+                    complet.
+                </p>
+
+                <div class="solution-card">
+                    <strong>✅ La solution :</strong> Vise 80% de cohérence. 80% du temps, mange sainement. Les 20%
+                    restants, profite sans culpabiliser. C'est ça qui est durable ! 🌴
+                </div>
+
+                <blockquote>
+                    "La transformation, c'est pas une question de perfection. C'est une question de consistance. Sous le
+                    soleil des Antilles, on sait que chaque petit pas compte."<br>
+                    — Harry Lift
+                </blockquote>
+
+                <h2>🎯 En résumé</h2>
+
+                <ol>
+                    <li><strong>Mange suffisamment</strong> - Un déficit modéré, pas extrême</li>
+                    <li><strong>Priorise les protéines</strong> - À chaque repas</li>
+                    <li><strong>Garde les glucides</strong> - Choisis-les bien</li>
+                    <li><strong>Surveille les boissons</strong> - Les calories cachées</li>
+                    <li><strong>Vise 80%</strong> - Pas la perfection</li>
+                </ol>
+
+                <div class="article-cta">
+                    <h3>🌴 Tu veux un plan nutrition personnalisé ?</h3>
+                    <p>Réserve ton bilan gratuit et on définira ensemble la stratégie parfaite pour toi.</p>
+                    <a href="../index.html#bilan" class="btn btn-lg">🏖️ Réserver mon bilan gratuit</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer simplifié -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p class="footer-copy">© 2025 Harry Lift. Tous droits réservés.</p>
+                <p class="footer-credit">
+                    Fait avec ☀️ par <a href="https://mehdiloumrhari.agency" target="_blank" rel="noopener">Loumrhari
+                        Agency</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
