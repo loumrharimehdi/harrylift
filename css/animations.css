@@ -291,19 +291,9 @@
     transform: scale(1.2) rotate(5deg);
 }
 
-/* Pricing card popular shine */
-.pricing-card.popular::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.1),
-            transparent);
-    animation: shimmer 3s infinite;
+/* Pricing card popular - NO shimmer, just border */
+.pricing-card.popular {
+    border: 2px solid var(--sea-turquoise);
 }
 
 /* Navigation link underline */

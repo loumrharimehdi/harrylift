@@ -711,5 +711,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // ============ CLICKABLE BLOG CARDS ============
+    const blogCards = document.querySelectorAll('.blog-card[data-href]');
+    blogCards.forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function () {
+            const href = this.dataset.href;
+            if (href) {
+                window.location.href = href;
+            }
+        });
+    });
+
     console.log('%c✨ Premium features loaded!', 'font-size: 12px; color: #FFD700;');
 });

@@ -606,30 +606,52 @@ p {
   }
 
   .navbar-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 320px;
-    height: 100vh;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
     background: var(--white);
     flex-direction: column;
-    padding: var(--space-20) var(--space-8);
-    transition: var(--transition-slow);
-    box-shadow: var(--shadow-xl);
+    padding: 0 var(--space-4);
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    box-shadow: var(--shadow-lg);
   }
 
   .navbar-menu.active {
-    right: 0;
+    max-height: 400px;
+    padding: var(--space-4);
   }
 
   .navbar-links {
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-3);
+    width: 100%;
+  }
+
+  .navbar-links li {
+    width: 100%;
+    text-align: center;
   }
 
   .navbar-links a {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
+    display: block;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--sand-light);
+  }
+
+  .navbar-menu .btn {
+    margin-top: var(--space-3);
+    width: 100%;
+  }
+
+  .navbar-menu .theme-toggle {
+    margin-top: var(--space-3);
   }
 }
 
@@ -1093,6 +1115,14 @@ p {
   color: var(--sea-deep);
   margin-bottom: var(--space-6);
   box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.hero-badge:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+  background: var(--sea-light);
 }
 
 .hero-title {
@@ -4000,44 +4030,21 @@ body.rain-mode {
   }
 }
 
-/* ============== PREMIUM ANIMATIONS FOR 20/20 ============== */
+/* ============== SIMPLE HOVER EFFECTS - NO SHINE, NO PULSE ============== */
 
-/* Pricing card shine on hover */
-.pricing-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent);
-  transition: left 0.5s ease;
-  z-index: 1;
-  pointer-events: none;
+/* Pricing card - simple border glow on hover, NO shine */
+.pricing-card {
+  position: relative;
+  overflow: hidden;
 }
 
-.pricing-card:hover::before {
-  left: 100%;
+.pricing-card:hover {
+  border-color: var(--sea-turquoise);
 }
 
-/* CTA pulsing glow */
-.cta-section .btn-primary {
-  animation: ctaPulse 2s ease-in-out infinite;
-}
-
-@keyframes ctaPulse {
-
-  0%,
-  100% {
-    box-shadow: var(--shadow-lg), 0 0 30px rgba(30, 155, 143, 0.3);
-  }
-
-  50% {
-    box-shadow: var(--shadow-xl), 0 0 50px rgba(30, 155, 143, 0.5);
-  }
+/* CTA buttons - NO pulsing animation, just hover glow */
+.cta-section .btn-primary:hover {
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(30, 155, 143, 0.4);
 }
 
 /* Stats counter glow */
@@ -4091,23 +4098,14 @@ body.rain-mode {
   transform: scale(0.98);
 }
 
-/* ============== PILL/BADGE ANIMATION (subsection headers) ============== */
-@keyframes pillPulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-    box-shadow: 0 4px 15px rgba(30, 155, 143, 0.3);
-  }
-
-  50% {
-    transform: scale(1.02);
-    box-shadow: 0 6px 25px rgba(30, 155, 143, 0.5);
-  }
+/* ============== PILL/BADGE - HOVER ONLY, NO ANIMATION ============== */
+.subsection-header h3 {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.subsection-header h3 {
-  animation: pillPulse 3s ease-in-out infinite;
+.subsection-header h3:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(30, 155, 143, 0.5);
 }
 
 /* ============== ACCESSIBILITY - FOCUS STYLES ============== */
@@ -4185,4 +4183,34 @@ a:focus-visible {
 .testimonial-card,
 .blog-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* IMPORTANT: No other transform animations allowed */
+}
+
+/* ============== BLOG CARDS FULLY CLICKABLE ============== */
+.blog-card[data-href] {
+  cursor: pointer;
+}
+
+.blog-card[data-href]:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.blog-card[data-href]:hover .blog-card-read-more {
+  color: var(--sea-deep);
+}
+
+.blog-card-read-more {
+  font-weight: 600;
+  color: var(--sea-turquoise);
+  transition: color 0.2s ease;
+}
+
+/* ============== METHOD STEP - SIMPLE ICONS ============== */
+.method-step-icon {
+  transition: transform 0.2s ease;
+}
+
+.method-step:hover .method-step-icon {
+  transform: scale(1.1);
 }
