@@ -715,19 +715,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 7. MAGNETIC BUTTON EFFECT
+    // 7. MAGNETIC BUTTON EFFECT (with transition fix)
     const magneticBtns = document.querySelectorAll('.btn-primary, .btn-secondary');
 
     magneticBtns.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            // Reduce transition to avoid jitter during magnetic effect
+            btn.style.transition = 'transform 0.05s ease-out';
+        });
+
         btn.addEventListener('mousemove', (e) => {
             const rect = btn.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
 
-            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
         });
 
         btn.addEventListener('mouseleave', () => {
+            btn.style.transition = 'transform 0.25s ease';
             btn.style.transform = 'translate(0, 0)';
         });
     });

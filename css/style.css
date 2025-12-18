@@ -2968,7 +2968,7 @@ body.rain-mode .rain-container {
 /* Rain mode message */
 .rain-mode-message {
   position: fixed;
-  bottom: 100px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.8);
@@ -3628,6 +3628,16 @@ body.rain-mode {
 @media (hover: none) {
   .custom-cursor {
     display: none;
+  }
+}
+
+/* Also hide on mobile by width */
+@media (max-width: 768px) {
+
+  .custom-cursor,
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
   }
 }
 
