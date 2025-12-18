@@ -69,14 +69,16 @@
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Shadows - Enhanced Tropical Sun Shadows */
-  --shadow-sm: 0 2px 4px rgba(45, 42, 38, 0.08), 0 1px 2px rgba(255, 179, 71, 0.05);
-  --shadow-md: 0 6px 12px -2px rgba(45, 42, 38, 0.1), 0 3px 6px -2px rgba(255, 179, 71, 0.08);
-  --shadow-lg: 0 15px 30px -5px rgba(45, 42, 38, 0.12), 0 8px 16px -4px rgba(255, 179, 71, 0.1);
-  --shadow-xl: 0 25px 50px -8px rgba(45, 42, 38, 0.15), 0 12px 24px -6px rgba(255, 179, 71, 0.12);
-  --shadow-glow: 0 0 40px rgba(64, 224, 208, 0.3);
-  --shadow-sun: 0 8px 32px rgba(255, 179, 71, 0.25), 0 4px 16px rgba(255, 127, 80, 0.15);
-  --shadow-card: 0 10px 40px rgba(45, 42, 38, 0.1), 0 2px 8px rgba(255, 179, 71, 0.08);
+  /* Shadows - Enhanced Tropical Sun Shadows (DRAMATIC) */
+  --shadow-sm: 0 4px 8px rgba(45, 42, 38, 0.12), 0 2px 4px rgba(255, 179, 71, 0.08);
+  --shadow-md: 0 8px 20px -4px rgba(45, 42, 38, 0.18), 0 4px 10px -2px rgba(255, 179, 71, 0.12);
+  --shadow-lg: 0 20px 40px -8px rgba(45, 42, 38, 0.2), 0 12px 24px -6px rgba(255, 179, 71, 0.15);
+  --shadow-xl: 0 30px 60px -12px rgba(45, 42, 38, 0.25), 0 18px 36px -8px rgba(255, 179, 71, 0.18);
+  --shadow-2xl: 0 40px 80px -16px rgba(45, 42, 38, 0.3), 0 24px 48px -12px rgba(255, 179, 71, 0.2);
+  --shadow-glow: 0 0 60px rgba(64, 224, 208, 0.4);
+  --shadow-sun: 0 12px 48px rgba(255, 179, 71, 0.35), 0 6px 24px rgba(255, 127, 80, 0.25);
+  --shadow-card: 0 16px 56px rgba(45, 42, 38, 0.15), 0 4px 12px rgba(255, 179, 71, 0.12);
+  --shadow-intense: 0 24px 64px rgba(45, 42, 38, 0.22), 0 8px 32px rgba(255, 127, 80, 0.18);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -1590,6 +1592,59 @@ p {
   }
 }
 
+/* ============== COMBINED RESULTS & TESTIMONIALS SECTION ============== */
+.results-testimonials {
+  background: linear-gradient(180deg, var(--sand-light) 0%, var(--white) 50%, var(--sand-light) 100%);
+  position: relative;
+}
+
+.subsection-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.subsection-header h3 {
+  font-size: var(--text-2xl);
+  color: var(--sea-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-8);
+  background: var(--white);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.subsection-header h3::before,
+.subsection-header h3::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sea-turquoise));
+}
+
+.subsection-header h3::before {
+  right: 100%;
+  margin-right: var(--space-4);
+}
+
+.subsection-header h3::after {
+  left: 100%;
+  margin-left: var(--space-4);
+  background: linear-gradient(90deg, var(--sea-turquoise), transparent);
+}
+
+@media (max-width: 768px) {
+
+  .subsection-header h3::before,
+  .subsection-header h3::after {
+    display: none;
+  }
+}
+
 .testimonial-card {
   background: var(--white);
   padding: var(--space-8);
@@ -2740,20 +2795,38 @@ body.rain-mode .theme-icon.rain {
 .method-step:hover,
 .testimonial-card:hover,
 .transformation-card:hover,
-.blog-card:hover {
-  box-shadow: var(--shadow-xl), var(--shadow-sun);
+.blog-card:hover,
+.faq-item:hover {
+  box-shadow: var(--shadow-2xl), var(--shadow-sun);
+  transform: translateY(-12px);
+}
+
+.pricing-card {
+  box-shadow: var(--shadow-lg);
+}
+
+.pricing-card:hover {
+  box-shadow: var(--shadow-2xl), var(--shadow-sun);
 }
 
 .pricing-card.popular {
-  box-shadow: var(--shadow-xl), 0 0 60px rgba(64, 224, 208, 0.2);
+  box-shadow: var(--shadow-2xl), 0 0 80px rgba(64, 224, 208, 0.3);
 }
 
 .pricing-card.popular:hover {
-  box-shadow: var(--shadow-xl), 0 0 80px rgba(64, 224, 208, 0.3), var(--shadow-sun);
+  box-shadow: var(--shadow-2xl), 0 0 100px rgba(64, 224, 208, 0.4), var(--shadow-sun);
 }
 
 .hero-content {
-  box-shadow: var(--shadow-xl), 0 0 80px rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-2xl), 0 0 100px rgba(255, 255, 255, 0.4);
+}
+
+.ps-card {
+  box-shadow: var(--shadow-intense);
+}
+
+.ps-card:hover {
+  box-shadow: var(--shadow-2xl), var(--shadow-sun);
 }
 
 /* ============== RAIN MODE (DARK THEME - TROLL VERSION) ============== */
