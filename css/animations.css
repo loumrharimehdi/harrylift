@@ -402,6 +402,83 @@ html {
     }
 }
 
+/* ============== MOBILE PERFORMANCE OPTIMIZATION ============== */
+@media (max-width: 768px) {
+
+    /* Disable heavy hero animations on mobile */
+    .tropical-sun,
+    .sun-rays,
+    .sun-glow {
+        animation: none !important;
+    }
+
+    .sun-ray {
+        animation: none !important;
+    }
+
+    .ocean-wave {
+        animation-duration: 15s !important;
+    }
+
+    .animated-wave {
+        animation-duration: 25s !important;
+    }
+
+    /* Simplify wave paths animations */
+    .wave-path {
+        animation-duration: 12s !important;
+    }
+
+    /* Reduce floating animations */
+    .about-image-wrapper {
+        animation: none !important;
+    }
+
+    .about-image-badge {
+        animation: none !important;
+    }
+
+    /* Disable beach detail animations */
+    .beach-detail {
+        animation: none !important;
+    }
+
+    /* Simplify button animations */
+    .btn-primary {
+        animation: none !important;
+    }
+
+    .section-cta .btn-primary {
+        animation: none !important;
+    }
+
+    /* Disable card hover complex animations */
+    .method-step:hover,
+    .pricing-card:hover,
+    .testimonial-card:hover,
+    .faq-item:hover {
+        animation: none !important;
+    }
+
+    /* Reduce hero content animations */
+    .hero-content,
+    .hero-badge,
+    .hero-title,
+    .hero-subtitle,
+    .hero-cta {
+        animation-duration: 0.4s !important;
+    }
+
+    /* Disable shimmer effects */
+    .pricing-card.popular::after {
+        animation: none !important;
+    }
+
+    .hero-badge::after {
+        animation: none !important;
+    }
+}
+
 /* Loading animation for images */
 .img-loading {
     background: linear-gradient(90deg,

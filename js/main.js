@@ -302,45 +302,150 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ============ SAND CLICK EFFECT ============
     const sandContainer = document.getElementById('sandEffectContainer');
-    
+
     function createSandEffect(x, y) {
         const particleCount = 15 + Math.floor(Math.random() * 10);
-        
+
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
             particle.className = 'sand-particle';
-            
+
             // Random direction and distance
             const angle = (Math.random() * 360) * (Math.PI / 180);
             const distance = 30 + Math.random() * 80;
             const dx = Math.cos(angle) * distance;
             const dy = Math.sin(angle) * distance + 20; // Add some gravity
-            
+
             particle.style.left = x + 'px';
             particle.style.top = y + 'px';
             particle.style.setProperty('--dx', dx + 'px');
             particle.style.setProperty('--dy', dy + 'px');
-            
+
             // Random delay for staggered effect
             particle.style.animationDelay = (Math.random() * 0.1) + 's';
-            
+
             sandContainer.appendChild(particle);
-            
+
             // Remove particle after animation
             setTimeout(() => {
                 particle.remove();
             }, 1100);
         }
     }
-    
+
     // Add click event to document
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         createSandEffect(e.clientX, e.clientY);
     });
 
+    // ============ CHATBOT FUNCTIONALITY ============
+    const chatbotWidget = document.getElementById('chatbotWidget');
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotSend = document.getElementById('chatbotSend');
+    const quickBtns = document.querySelectorAll('.chatbot-quick-btn');
+
+    // Toggle chatbot
+    if (chatbotToggle) {
+        chatbotToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            chatbotWidget.classList.toggle('active');
+        });
+    }
+
+    // Close chatbot
+    if (chatbotClose) {
+        chatbotClose.addEventListener('click', function () {
+            chatbotWidget.classList.remove('active');
+        });
+    }
+
+    // Quick action buttons
+    quickBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const action = this.dataset.action;
+
+            if (action === 'bilan') {
+                addUserMessage('Je veux réserver un bilan gratuit');
+                setTimeout(() => {
+                    addBotMessage('Super choix ! 🌴 Clique sur ce lien pour choisir ton créneau :');
+                    setTimeout(() => {
+                        addBotMessage('<a href="https://calendly.com/harrylift" target="_blank" style="color: #1E9B8F; text-decoration: underline;">📅 Réserver sur Calendly</a>');
+                    }, 500);
+                }, 800);
+            } else if (action === 'tarifs') {
+                addUserMessage('Je veux voir les tarifs');
+                setTimeout(() => {
+                    addBotMessage('Voici mes formules : 💪 Séance coaching : 60€ | 🎈 Suivi mensuel : 97€/mois | 🌴 Formule complète : 350€/mois');
+                    setTimeout(() => {
+                        addBotMessage('Le suivi mensuel est le plus populaire ! Tu veux qu\'on en discute ?');
+                    }, 500);
+                }, 800);
+            } else if (action === 'whatsapp') {
+                addUserMessage('Je préfère WhatsApp');
+                setTimeout(() => {
+                    addBotMessage('Pas de souci ! Écris-moi directement : ');
+                    setTimeout(() => {
+                        addBotMessage('<a href="https://wa.me/33695308817" target="_blank" style="color: #1E9B8F; text-decoration: underline;">📱 Ouvrir WhatsApp</a>');
+                    }, 500);
+                }, 800);
+            }
+        });
+    });
+
+    // Send message
+    function sendMessage() {
+        const message = chatbotInput.value.trim();
+        if (message) {
+            addUserMessage(message);
+            chatbotInput.value = '';
+
+            // Auto response
+            setTimeout(() => {
+                const responses = [
+                    'Merci pour ton message ! 🌴 Pour une réponse personnalisée, réserve ton bilan gratuit ou écris-moi sur WhatsApp !',
+                    'Je vois que tu es motivé(e) ! 💪 Le meilleur moyen d\'avancer, c\'est de réserver ton bilan gratuit.',
+                    'Bonne question ! On pourra en discuter en détail pendant ton bilan gratuit. C\'est sans engagement ☀️'
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addBotMessage(randomResponse);
+            }, 1000);
+        }
+    }
+
+    if (chatbotSend) {
+        chatbotSend.addEventListener('click', sendMessage);
+    }
+
+    if (chatbotInput) {
+        chatbotInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+
+    function addUserMessage(text) {
+        const msg = document.createElement('div');
+        msg.className = 'chatbot-message user';
+        msg.textContent = text;
+        chatbotMessages.appendChild(msg);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function addBotMessage(text) {
+        const msg = document.createElement('div');
+        msg.className = 'chatbot-message bot';
+        msg.innerHTML = text;
+        chatbotMessages.appendChild(msg);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
     // ============ CONSOLE WELCOME MESSAGE ============
     console.log('%c🌴 Harry Lift - Summer Body Edition 🏖️',
-        'font-size: 20px; font-weight: bold; color: #40E0D0;');
+        'font-size: 20px; font-weight: bold; color: #1E9B8F;');
     console.log('%cBienvenue sur le site de coaching le plus ensoleillé de Lyon !',
         'font-size: 14px; color: #FFB347;');
     console.log('%cDéveloppé avec ☀️ par Loumrhari Agency',
