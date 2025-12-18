@@ -573,5 +573,213 @@ document.addEventListener('DOMContentLoaded', function () {
         'font-size: 14px; color: #FFB347;');
     console.log('%cDéveloppé avec ☀️ par Loumrhari Agency',
         'font-size: 12px; color: #87CEEB;');
-});
 
+    // ============ PREMIUM IMPROVEMENTS ============
+
+    // 1. PRELOADER
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', function () {
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+                document.body.classList.add('page-transition');
+            }, 1800);
+        });
+    }
+
+    // 2. CUSTOM CURSOR
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+
+    if (cursorDot && cursorRing && window.matchMedia('(hover: hover)').matches) {
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        // Smooth ring follow
+        function animateRing() {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.left = ringX + 'px';
+            cursorRing.style.top = ringY + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        // Hover effect on interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .btn, .pricing-card, .testimonial-card, .faq-item');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
+        });
+
+        // Click effect
+        document.addEventListener('mousedown', () => cursorRing.classList.add('click'));
+        document.addEventListener('mouseup', () => cursorRing.classList.remove('click'));
+    }
+
+    // 3. SCROLL PROGRESS BAR
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+    }
+
+    // 4. SCROLL TO TOP BUTTON
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // 5. CONFETTI ON CTA CLICK
+    const confettiContainer = document.getElementById('confettiContainer');
+    const ctaButtons = document.querySelectorAll('.cta-section .btn-primary, .hero-cta .btn-primary');
+
+    function createConfetti(x, y) {
+        if (!confettiContainer) return;
+
+        const colors = ['#FFB347', '#FF7F50', '#40E0D0', '#FFD700', '#FF6B6B', '#1E9B8F'];
+        const shapes = ['🌴', '☀️', '🥥', '🏖️', '⭐', '✨'];
+
+        for (let i = 0; i < 30; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = (x + (Math.random() - 0.5) * 200) + 'px';
+            confetti.style.top = y + 'px';
+            confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+            confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+
+            // Random emoji or colored shape
+            if (Math.random() > 0.5) {
+                confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                confetti.style.fontSize = (12 + Math.random() * 12) + 'px';
+                confetti.style.background = 'none';
+            } else {
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = (8 + Math.random() * 8) + 'px';
+                confetti.style.height = (8 + Math.random() * 8) + 'px';
+            }
+
+            confettiContainer.appendChild(confetti);
+
+            // Remove after animation
+            setTimeout(() => confetti.remove(), 3500);
+        }
+    }
+
+    ctaButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            createConfetti(e.clientX, e.clientY);
+        });
+    });
+
+    // 6. 3D TILT EFFECT ON CARDS
+    const tiltCards = document.querySelectorAll('.pricing-card, .method-step, .testimonial-card, .blog-card');
+
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const tiltX = (y - centerY) / 20;
+            const tiltY = (centerX - x) / 20;
+
+            card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-8px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    });
+
+    // 7. MAGNETIC BUTTON EFFECT
+    const magneticBtns = document.querySelectorAll('.btn-primary, .btn-secondary');
+
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+
+    // 8. TEXT REVEAL - Split hero title into characters (if needed)
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle && !heroTitle.classList.contains('text-split')) {
+        // Already handled by CSS animations
+    }
+
+    // 9. Intersection Observer for enhanced reveal
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const enhancedObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+
+                // Add stagger effect to children
+                const children = entry.target.querySelectorAll('.reveal-child');
+                children.forEach((child, index) => {
+                    child.style.animationDelay = (index * 0.1) + 's';
+                    child.classList.add('revealed');
+                });
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.section').forEach(section => {
+        enhancedObserver.observe(section);
+    });
+
+    // 10. Smooth anchor scroll with offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    console.log('%c✨ Premium features loaded!', 'font-size: 12px; color: #FFD700;');
+});

@@ -3506,3 +3506,543 @@ body.rain-mode {
     font-size: var(--text-xl);
   }
 }
+
+/* ============== PREMIUM IMPROVEMENTS ============== */
+
+/* 1. PRELOADER TROPICAL */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--sand-light) 0%, var(--sea-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-content {
+  text-align: center;
+}
+
+.preloader-palm {
+  font-size: 5rem;
+  animation: preloaderSway 1s ease-in-out infinite;
+}
+
+.preloader-text {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--sea-deep);
+  margin-top: var(--space-4);
+}
+
+.preloader-bar {
+  width: 200px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-full);
+  margin-top: var(--space-4);
+  overflow: hidden;
+}
+
+.preloader-progress {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-cta);
+  border-radius: var(--radius-full);
+  animation: preloaderProgress 1.5s ease-out forwards;
+}
+
+@keyframes preloaderSway {
+
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes preloaderProgress {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* 2. CUSTOM CURSOR */
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  z-index: 99998;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease-out;
+  opacity: 0.5;
+}
+
+.cursor-ring.hover {
+  width: 60px;
+  height: 60px;
+  border-color: var(--sea-turquoise);
+  opacity: 1;
+}
+
+.cursor-ring.click {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+/* 3. SCROLL PROGRESS BAR */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--gradient-cta);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(30, 155, 143, 0.5);
+}
+
+/* 4. SCROLL TO TOP BUTTON */
+.scroll-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  background: var(--gradient-sunset);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) rotate(-20deg);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) rotate(0deg);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px) rotate(10deg) scale(1.1);
+  box-shadow: var(--shadow-xl);
+}
+
+.scroll-to-top span {
+  animation: coconutBounce 2s ease-in-out infinite;
+}
+
+@keyframes coconutBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* 5. CONFETTI CONTAINER */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99997;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  animation: confettiFall 3s ease-out forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 1;
+    transform: translateY(-100px) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+/* 6. 3D TILT EFFECT ON CARDS */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tilt-card .tilt-inner {
+  transition: transform 0.3s ease-out;
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover .tilt-inner {
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+
+.tilt-card .tilt-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.tilt-card:hover .tilt-shine {
+  opacity: 1;
+}
+
+/* Apply 3D tilt to cards */
+.pricing-card,
+.method-step,
+.testimonial-card,
+.transformation-card,
+.blog-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+}
+
+/* 7. MAGNETIC BUTTON EFFECT */
+.btn-magnetic {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-magnetic .btn-text {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 8. TEXT REVEAL ANIMATION */
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  animation: textReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.text-reveal span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.text-reveal span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.text-reveal span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.text-reveal span:nth-child(4) {
+  animation-delay: 0.25s;
+}
+
+.text-reveal span:nth-child(5) {
+  animation-delay: 0.3s;
+}
+
+.text-reveal span:nth-child(6) {
+  animation-delay: 0.35s;
+}
+
+.text-reveal span:nth-child(7) {
+  animation-delay: 0.4s;
+}
+
+.text-reveal span:nth-child(8) {
+  animation-delay: 0.45s;
+}
+
+@keyframes textReveal {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Letter by letter animation for hero */
+.hero-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(50px) rotateX(-90deg);
+  animation: charReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes charReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* 9. ENHANCED GLASSMORPHISM */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Apply glass effect to hero content */
+.hero-content {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 10. SMOOTH PAGE TRANSITIONS */
+.page-transition {
+  animation: pageSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section reveal animation */
+.section {
+  animation: sectionReveal 0.8s ease-out;
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============== FLOATING PARTICLES BACKGROUND ============== */
+.particles-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: particleFloat 15s infinite ease-in-out;
+}
+
+@keyframes particleFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  25% {
+    transform: translateY(-30px) translateX(20px);
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(-20px);
+  }
+
+  75% {
+    transform: translateY(-40px) translateX(10px);
+  }
+}
+
+/* ============== HOVER GLOW EFFECT ============== */
+.glow-hover {
+  position: relative;
+}
+
+.glow-hover::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-cta);
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  filter: blur(15px);
+  transition: opacity 0.3s ease;
+}
+
+.glow-hover:hover::before {
+  opacity: 0.6;
+}
+
+/* ============== RIPPLE ONCLICK EFFECT ============== */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: rippleAnimation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============== PREMIUM ANIMATIONS FOR 20/20 ============== */
+
+/* Pricing card shine on hover */
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pricing-card:hover::before {
+  left: 100%;
+}
+
+/* CTA pulsing glow */
+.cta-section .btn-primary {
+  animation: ctaPulse 2s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+
+  0%,
+  100% {
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(30, 155, 143, 0.3);
+  }
+
+  50% {
+    box-shadow: var(--shadow-xl), 0 0 50px rgba(30, 155, 143, 0.5);
+  }
+}
+
+/* Stats counter glow */
+.about-stat-number {
+  text-shadow: 0 0 20px rgba(64, 224, 208, 0.5);
+}
+
+/* Footer wave effect */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 50'%3E%3Cpath fill='%232D2A26' d='M0,25 C360,50 540,0 720,25 C900,50 1080,0 1440,25 L1440,50 L0,50 Z'/%3E%3C/svg%3E");
+  background-size: cover;
+}
