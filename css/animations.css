@@ -720,3 +720,275 @@ html {
         radial-gradient(circle at 10% 20%, rgba(64, 224, 208, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 90% 80%, rgba(255, 179, 71, 0.05) 0%, transparent 50%);
 }
+
+/* ============== ADDITIONAL TROPICAL ANIMATIONS ============== */
+
+/* Heat shimmer effect */
+@keyframes heatShimmer {
+
+    0%,
+    100% {
+        filter: blur(0px);
+        transform: scaleY(1);
+    }
+
+    25% {
+        filter: blur(0.3px);
+        transform: scaleY(1.001);
+    }
+
+    50% {
+        filter: blur(0px);
+        transform: scaleY(0.999);
+    }
+
+    75% {
+        filter: blur(0.2px);
+        transform: scaleY(1.001);
+    }
+}
+
+/* Tropical sunset glow */
+@keyframes sunsetGlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Ocean sparkle effect */
+@keyframes oceanSparkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Hammock swing */
+@keyframes hammockSwing {
+
+    0%,
+    100% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+/* Rum bottle sway */
+@keyframes rumSway {
+
+    0%,
+    100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    25% {
+        transform: rotate(3deg) translateY(-2px);
+    }
+
+    50% {
+        transform: rotate(-2deg) translateY(0);
+    }
+
+    75% {
+        transform: rotate(4deg) translateY(-1px);
+    }
+}
+
+/* Creole dance animation */
+@keyframes creoleDance {
+
+    0%,
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(5px) rotate(2deg);
+    }
+
+    50% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    75% {
+        transform: translateX(-5px) rotate(-2deg);
+    }
+}
+
+/* Steel drum beat */
+@keyframes steelDrum {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.05);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+}
+
+/* Tropical heat wave */
+@keyframes tropicalHeat {
+    0% {
+        background-position: 0% 0%;
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        background-position: 100% 100%;
+        filter: hue-rotate(10deg);
+    }
+
+    100% {
+        background-position: 0% 0%;
+        filter: hue-rotate(0deg);
+    }
+}
+
+/* Drifting boat */
+@keyframes boatDrift {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(10px) translateY(-5px) rotate(2deg);
+    }
+
+    50% {
+        transform: translateX(5px) translateY(0) rotate(-1deg);
+    }
+
+    75% {
+        transform: translateX(-5px) translateY(-3px) rotate(1deg);
+    }
+}
+
+/* Banana leaf sway */
+@keyframes bananaLeaf {
+
+    0%,
+    100% {
+        transform: rotate(0deg) skewX(0deg);
+    }
+
+    33% {
+        transform: rotate(2deg) skewX(1deg);
+    }
+
+    66% {
+        transform: rotate(-1deg) skewX(-0.5deg);
+    }
+}
+
+/* Apply animations to various elements */
+
+/* Cards with heat shimmer on hover */
+.pricing-card:hover .pricing-icon,
+.method-step:hover .method-step-icon {
+    animation: creoleDance 0.8s ease-in-out;
+}
+
+/* Testimonial avatars dance */
+.testimonial-avatar {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .testimonial-avatar {
+    animation: steelDrum 0.5s ease-out;
+}
+
+/* About image with boat drift */
+.about-image-wrapper {
+    animation: boatDrift 8s ease-in-out infinite;
+}
+
+/* Hero title tropical effect */
+.hero-title {
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+/* Pricing popular card glow */
+.pricing-card.popular {
+    animation: sunsetGlow 8s ease infinite;
+    background-size: 200% 200%;
+}
+
+/* FAQ items banana leaf effect */
+.faq-item:hover {
+    animation: bananaLeaf 0.6s ease-out;
+}
+
+/* Footer with subtle heat */
+.footer {
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+            var(--sea-turquoise),
+            var(--sand-accent),
+            #FF7F50,
+            var(--sea-turquoise));
+    background-size: 300% 100%;
+    animation: sunsetGlow 4s linear infinite;
+}
+
+/* CTA section tropical ambiance */
+.cta-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 20% 80%, rgba(255, 179, 71, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(64, 224, 208, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    animation: tropicalHeat 15s ease infinite;
+}
+
+/* Hover effects with rum sway */
+.btn:hover {
+    animation: rumSway 0.4s ease-out;
+}
+
+/* Stars in testimonials sparkle */
+.testimonial-stars {
+    animation: oceanSparkle 3s ease-in-out infinite;
+}

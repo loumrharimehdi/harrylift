@@ -300,6 +300,44 @@ document.addEventListener('DOMContentLoaded', function () {
   `;
     document.head.appendChild(style);
 
+    // ============ SAND CLICK EFFECT ============
+    const sandContainer = document.getElementById('sandEffectContainer');
+    
+    function createSandEffect(x, y) {
+        const particleCount = 15 + Math.floor(Math.random() * 10);
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'sand-particle';
+            
+            // Random direction and distance
+            const angle = (Math.random() * 360) * (Math.PI / 180);
+            const distance = 30 + Math.random() * 80;
+            const dx = Math.cos(angle) * distance;
+            const dy = Math.sin(angle) * distance + 20; // Add some gravity
+            
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.setProperty('--dx', dx + 'px');
+            particle.style.setProperty('--dy', dy + 'px');
+            
+            // Random delay for staggered effect
+            particle.style.animationDelay = (Math.random() * 0.1) + 's';
+            
+            sandContainer.appendChild(particle);
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                particle.remove();
+            }, 1100);
+        }
+    }
+    
+    // Add click event to document
+    document.addEventListener('click', function(e) {
+        createSandEffect(e.clientX, e.clientY);
+    });
+
     // ============ CONSOLE WELCOME MESSAGE ============
     console.log('%c🌴 Harry Lift - Summer Body Edition 🏖️',
         'font-size: 20px; font-weight: bold; color: #40E0D0;');

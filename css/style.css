@@ -100,9 +100,185 @@
   background: linear-gradient(135deg, #FFB347 0%, #FF7F50 100%);
 }
 
-.wave-separator-final {
-  background: linear-gradient(135deg, #87CEEB 0%, #40E0D0 50%, #20B2AA 100%);
-  padding: var(--space-4) 0;
+/* NEW: Ocean Wave Separator with Real Animated Waves */
+.wave-separator-ocean {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--white) 0%, transparent 20%);
+}
+
+.wave-separator-sunset {
+  background: linear-gradient(180deg, var(--sand-light) 0%, transparent 20%);
+}
+
+.wave-separator-final-ocean {
+  height: 120px;
+}
+
+.animated-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  animation: waveScroll 15s linear infinite;
+}
+
+.wave-path {
+  transition: all 0.3s ease;
+}
+
+.wave-path.wave-back {
+  fill: rgba(64, 224, 208, 0.4);
+  animation: waveMotion 8s ease-in-out infinite;
+}
+
+.wave-path.wave-mid {
+  fill: rgba(32, 178, 170, 0.6);
+  animation: waveMotion 6s ease-in-out infinite reverse;
+}
+
+.wave-path.wave-front {
+  fill: rgba(0, 139, 139, 0.8);
+  animation: waveMotion 4s ease-in-out infinite;
+}
+
+.wave-separator-sunset .wave-path.wave-back {
+  fill: rgba(255, 179, 71, 0.4);
+}
+
+.wave-separator-sunset .wave-path.wave-mid {
+  fill: rgba(255, 127, 80, 0.6);
+}
+
+.wave-separator-sunset .wave-path.wave-front {
+  fill: rgba(255, 99, 71, 0.8);
+}
+
+@keyframes waveScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes waveMotion {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Flying Birds in Hero */
+.flying-birds {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.bird {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.7;
+  animation: birdFly 20s linear infinite;
+}
+
+.bird-1 {
+  top: 0;
+  animation-delay: 0s;
+}
+
+.bird-2 {
+  top: 30px;
+  animation-delay: -7s;
+}
+
+.bird-3 {
+  top: 50px;
+  animation-delay: -14s;
+}
+
+@keyframes birdFly {
+  0% {
+    left: -50px;
+    transform: translateY(0) scaleX(1);
+  }
+
+  25% {
+    transform: translateY(-15px) scaleX(1);
+  }
+
+  50% {
+    transform: translateY(10px) scaleX(1);
+  }
+
+  75% {
+    transform: translateY(-8px) scaleX(1);
+  }
+
+  100% {
+    left: calc(100% + 50px);
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+/* Sand Click Effect */
+#sandEffectContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.sand-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--sand-dark);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sandFall 1s ease-out forwards;
+}
+
+.sand-particle:nth-child(odd) {
+  background: var(--sand-medium);
+  width: 4px;
+  height: 4px;
+}
+
+.sand-particle:nth-child(3n) {
+  background: var(--sand-accent);
+  width: 5px;
+  height: 5px;
+}
+
+@keyframes sandFall {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.3);
+  }
 }
 
 .wave-svg {

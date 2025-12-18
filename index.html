@@ -42,6 +42,9 @@
 </head>
 
 <body>
+  <!-- Sand Click Effect Container -->
+  <div id="sandEffectContainer"></div>
+
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -72,29 +75,6 @@
 
   <div class="menu-overlay" id="menuOverlay"></div>
 
-  <!-- ========== WAVE MARQUEE TOP ========== -->
-  <div class="wave-marquee-container wave-marquee-top">
-    <div class="wave-marquee">
-      <div class="wave-marquee-content">
-        <span>🌴 SUMMER BODY</span>
-        <span>☀️ TRANSFORMATION</span>
-        <span>🏖️ COACH LYON</span>
-        <span>💪 RÉSULTATS GARANTIS</span>
-        <span>🌊 MÉTHODE ANTILLAISE</span>
-        <span>🥥 ÉNERGIE POSITIVE</span>
-        <span>🌴 SUMMER BODY</span>
-        <span>☀️ TRANSFORMATION</span>
-        <span>🏖️ COACH LYON</span>
-        <span>💪 RÉSULTATS GARANTIS</span>
-        <span>🌊 MÉTHODE ANTILLAISE</span>
-        <span>🥥 ÉNERGIE POSITIVE</span>
-      </div>
-    </div>
-    <svg class="wave-shape" viewBox="0 0 1440 60" preserveAspectRatio="none">
-      <path d="M0,30 C360,60 540,0 720,30 C900,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="var(--sand-light)" />
-    </svg>
-  </div>
-
   <!-- ========== HERO SECTION ========== -->
   <section class="hero" id="hero">
     <!-- Tropical Scene Background -->
@@ -118,43 +98,12 @@
         <div class="sun-glow"></div>
       </div>
 
-      <!-- Palm Trees -->
-      <svg class="palm-tree palm-tree-left" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Trunk -->
-        <path d="M95 400 Q90 300 100 200 Q105 150 95 100" stroke="#8B4513" stroke-width="20" stroke-linecap="round"
-          fill="none" />
-        <path d="M95 400 Q92 300 102 200 Q107 150 97 100" stroke="#A0522D" stroke-width="12" stroke-linecap="round"
-          fill="none" />
-        <!-- Leaves -->
-        <path d="M95 100 Q60 50 20 80" stroke="#228B22" stroke-width="8" fill="none" class="palm-leaf" />
-        <path d="M95 100 Q50 30 30 10" stroke="#2E8B57" stroke-width="8" fill="none" class="palm-leaf" />
-        <path d="M95 100 Q100 20 90 -20" stroke="#228B22" stroke-width="8" fill="none" class="palm-leaf" />
-        <path d="M95 100 Q140 30 160 10" stroke="#2E8B57" stroke-width="8" fill="none" class="palm-leaf" />
-        <path d="M95 100 Q130 50 170 80" stroke="#228B22" stroke-width="8" fill="none" class="palm-leaf" />
-        <path d="M95 100 Q70 70 40 60" stroke="#32CD32" stroke-width="6" fill="none" class="palm-leaf" />
-        <path d="M95 100 Q120 70 150 60" stroke="#32CD32" stroke-width="6" fill="none" class="palm-leaf" />
-        <!-- Coconuts -->
-        <circle cx="90" cy="110" r="8" fill="#8B4513" />
-        <circle cx="100" cy="115" r="7" fill="#A0522D" />
-        <circle cx="95" cy="105" r="6" fill="#8B4513" />
-      </svg>
-
-      <svg class="palm-tree palm-tree-right" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Trunk -->
-        <path d="M105 400 Q110 300 100 200 Q95 150 105 100" stroke="#8B4513" stroke-width="18" stroke-linecap="round"
-          fill="none" />
-        <path d="M105 400 Q108 300 98 200 Q93 150 103 100" stroke="#A0522D" stroke-width="10" stroke-linecap="round"
-          fill="none" />
-        <!-- Leaves -->
-        <path d="M105 100 Q140 50 180 80" stroke="#228B22" stroke-width="7" fill="none" class="palm-leaf" />
-        <path d="M105 100 Q150 30 170 10" stroke="#2E8B57" stroke-width="7" fill="none" class="palm-leaf" />
-        <path d="M105 100 Q100 20 110 -20" stroke="#228B22" stroke-width="7" fill="none" class="palm-leaf" />
-        <path d="M105 100 Q60 30 40 10" stroke="#2E8B57" stroke-width="7" fill="none" class="palm-leaf" />
-        <path d="M105 100 Q70 50 30 80" stroke="#228B22" stroke-width="7" fill="none" class="palm-leaf" />
-        <!-- Coconuts -->
-        <circle cx="110" cy="110" r="7" fill="#8B4513" />
-        <circle cx="100" cy="112" r="6" fill="#A0522D" />
-      </svg>
+      <!-- Flying Birds -->
+      <div class="flying-birds">
+        <span class="bird bird-1">🕊️</span>
+        <span class="bird bird-2">🕊️</span>
+        <span class="bird bird-3">🕊️</span>
+      </div>
 
       <!-- Ocean Waves -->
       <div class="tropical-ocean">
@@ -229,27 +178,15 @@
     </div>
   </section>
 
-  <!-- ========== WAVE MARQUEE BOTTOM ========== -->
-  <div class="wave-marquee-container wave-marquee-bottom">
-    <svg class="wave-shape wave-shape-top" viewBox="0 0 1440 60" preserveAspectRatio="none">
-      <path d="M0,30 C360,0 540,60 720,30 C900,0 1080,60 1440,30 L1440,0 L0,0 Z" fill="var(--white)" />
+  <!-- Wave Separator After Hero -->
+  <div class="wave-separator-ocean wave-separator-sunset">
+    <svg class="animated-wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="wave-path wave-back" d="M0,50 C360,100 540,0 720,50 C900,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-mid"
+        d="M0,60 C280,20 460,80 640,40 C820,0 1000,60 1180,30 C1360,0 1400,40 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-front"
+        d="M0,70 C200,40 400,90 600,50 C800,10 1000,70 1200,40 C1350,20 1400,50 1440,60 L1440,100 L0,100 Z" />
     </svg>
-    <div class="wave-marquee wave-marquee-reverse">
-      <div class="wave-marquee-content">
-        <span>🔥 MOTIVATION</span>
-        <span>✨ CONFIANCE</span>
-        <span>💪 FORCE</span>
-        <span>🌟 DISCIPLINE</span>
-        <span>🎯 OBJECTIFS</span>
-        <span>⚡ ÉNERGIE</span>
-        <span>🔥 MOTIVATION</span>
-        <span>✨ CONFIANCE</span>
-        <span>💪 FORCE</span>
-        <span>🌟 DISCIPLINE</span>
-        <span>🎯 OBJECTIFS</span>
-        <span>⚡ ÉNERGIE</span>
-      </div>
-    </div>
   </div>
 
   <!-- ========== PROBLEM / SOLUTION ========== -->
@@ -296,14 +233,13 @@
   </section>
 
   <!-- Wave Separator -->
-  <div class="wave-separator">
-    <div class="wave-marquee-simple">
-      <div class="wave-marquee-track">
-        <span>🌊</span><span>🐚</span><span>🌊</span><span>🦀</span><span>🌊</span><span>⭐</span><span>🌊</span><span>🐠</span><span>🌊</span><span>🐚</span><span>🌊</span><span>🦀</span><span>🌊</span><span>⭐</span><span>🌊</span><span>🐠</span>
-      </div>
-    </div>
-    <svg class="wave-svg" viewBox="0 0 1440 60" preserveAspectRatio="none">
-      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="var(--sand-light)" />
+  <div class="wave-separator-ocean">
+    <svg class="animated-wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="wave-path wave-back" d="M0,50 C360,100 540,0 720,50 C900,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-mid"
+        d="M0,60 C280,20 460,80 640,40 C820,0 1000,60 1180,30 C1360,0 1400,40 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-front"
+        d="M0,70 C200,40 400,90 600,50 C800,10 1000,70 1200,40 C1350,20 1400,50 1440,60 L1440,100 L0,100 Z" />
     </svg>
   </div>
 
@@ -359,15 +295,14 @@
   </section>
 
   <!-- Wave Separator -->
-  <div class="wave-separator wave-separator-alt">
-    <svg class="wave-svg wave-svg-top" viewBox="0 0 1440 60" preserveAspectRatio="none">
-      <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,0 L0,0 Z" fill="var(--sand-light)" />
+  <div class="wave-separator-ocean wave-separator-sunset">
+    <svg class="animated-wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="wave-path wave-back" d="M0,50 C360,100 540,0 720,50 C900,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-mid"
+        d="M0,60 C280,20 460,80 640,40 C820,0 1000,60 1180,30 C1360,0 1400,40 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-front"
+        d="M0,70 C200,40 400,90 600,50 C800,10 1000,70 1200,40 C1350,20 1400,50 1440,60 L1440,100 L0,100 Z" />
     </svg>
-    <div class="wave-marquee-simple wave-marquee-reverse">
-      <div class="wave-marquee-track">
-        <span>☀️</span><span>🌴</span><span>☀️</span><span>🥥</span><span>☀️</span><span>🏝️</span><span>☀️</span><span>🍹</span><span>☀️</span><span>🌴</span><span>☀️</span><span>🥥</span><span>☀️</span><span>🏝️</span><span>☀️</span><span>🍹</span>
-      </div>
-    </div>
   </div>
 
   <!-- ========== PRICING SECTION ========== -->
@@ -444,14 +379,13 @@
   </section>
 
   <!-- Wave Separator -->
-  <div class="wave-separator">
-    <div class="wave-marquee-simple">
-      <div class="wave-marquee-track">
-        <span>🎣</span><span>🐟</span><span>🎣</span><span>🦐</span><span>🎣</span><span>🐙</span><span>🎣</span><span>🦞</span><span>🎣</span><span>🐟</span><span>🎣</span><span>🦐</span><span>🎣</span><span>🐙</span><span>🎣</span><span>🦞</span>
-      </div>
-    </div>
-    <svg class="wave-svg" viewBox="0 0 1440 60" preserveAspectRatio="none">
-      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="var(--sand-light)" />
+  <div class="wave-separator-ocean">
+    <svg class="animated-wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="wave-path wave-back" d="M0,50 C360,100 540,0 720,50 C900,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-mid"
+        d="M0,60 C280,20 460,80 640,40 C820,0 1000,60 1180,30 C1360,0 1400,40 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-front"
+        d="M0,70 C200,40 400,90 600,50 C800,10 1000,70 1200,40 C1350,20 1400,50 1440,60 L1440,100 L0,100 Z" />
     </svg>
   </div>
 
@@ -523,15 +457,14 @@
   </section>
 
   <!-- Wave Separator -->
-  <div class="wave-separator wave-separator-alt">
-    <svg class="wave-svg wave-svg-top" viewBox="0 0 1440 60" preserveAspectRatio="none">
-      <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,0 L0,0 Z" fill="var(--sand-light)" />
+  <div class="wave-separator-ocean wave-separator-sunset">
+    <svg class="animated-wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="wave-path wave-back" d="M0,50 C360,100 540,0 720,50 C900,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-mid"
+        d="M0,60 C280,20 460,80 640,40 C820,0 1000,60 1180,30 C1360,0 1400,40 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-front"
+        d="M0,70 C200,40 400,90 600,50 C800,10 1000,70 1200,40 C1350,20 1400,50 1440,60 L1440,100 L0,100 Z" />
     </svg>
-    <div class="wave-marquee-simple wave-marquee-reverse">
-      <div class="wave-marquee-track">
-        <span>🏋️</span><span>💪</span><span>🏋️</span><span>🔥</span><span>🏋️</span><span>✨</span><span>🏋️</span><span>⚡</span><span>🏋️</span><span>💪</span><span>🏋️</span><span>🔥</span><span>🏋️</span><span>✨</span><span>🏋️</span><span>⚡</span>
-      </div>
-    </div>
   </div>
 
   <!-- ========== ABOUT SECTION ========== -->
@@ -592,14 +525,13 @@
   </section>
 
   <!-- Wave Separator -->
-  <div class="wave-separator">
-    <div class="wave-marquee-simple">
-      <div class="wave-marquee-track">
-        <span>🌺</span><span>🌸</span><span>🌺</span><span>🌼</span><span>🌺</span><span>🌻</span><span>🌺</span><span>🌷</span><span>🌺</span><span>🌸</span><span>🌺</span><span>🌼</span><span>🌺</span><span>🌻</span><span>🌺</span><span>🌷</span>
-      </div>
-    </div>
-    <svg class="wave-svg" viewBox="0 0 1440 60" preserveAspectRatio="none">
-      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="var(--sand-light)" />
+  <div class="wave-separator-ocean">
+    <svg class="animated-wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="wave-path wave-back" d="M0,50 C360,100 540,0 720,50 C900,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-mid"
+        d="M0,60 C280,20 460,80 640,40 C820,0 1000,60 1180,30 C1360,0 1400,40 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-front"
+        d="M0,70 C200,40 400,90 600,50 C800,10 1000,70 1200,40 C1350,20 1400,50 1440,60 L1440,100 L0,100 Z" />
     </svg>
   </div>
 
@@ -696,12 +628,14 @@
   </section>
 
   <!-- Wave Separator Final -->
-  <div class="wave-separator wave-separator-final">
-    <div class="wave-marquee-simple wave-marquee-reverse">
-      <div class="wave-marquee-track">
-        <span>🌴</span><span>☀️</span><span>🏖️</span><span>🌊</span><span>🥥</span><span>🎣</span><span>🐚</span><span>🦀</span><span>🌴</span><span>☀️</span><span>🏖️</span><span>🌊</span><span>🥥</span><span>🎣</span><span>🐚</span><span>🦀</span>
-      </div>
-    </div>
+  <div class="wave-separator-ocean wave-separator-final-ocean">
+    <svg class="animated-wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="wave-path wave-back" d="M0,50 C360,100 540,0 720,50 C900,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-mid"
+        d="M0,60 C280,20 460,80 640,40 C820,0 1000,60 1180,30 C1360,0 1400,40 1440,50 L1440,100 L0,100 Z" />
+      <path class="wave-path wave-front"
+        d="M0,70 C200,40 400,90 600,50 C800,10 1000,70 1200,40 C1350,20 1400,50 1440,60 L1440,100 L0,100 Z" />
+    </svg>
   </div>
 
   <!-- ========== CTA SECTION ========== -->
