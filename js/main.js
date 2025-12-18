@@ -583,46 +583,13 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 preloader.classList.add('hidden');
                 document.body.classList.add('page-transition');
-            }, 1800);
+            }, 1000); // Reduced from 1800ms to 1000ms
         });
     }
 
-    // 2. CUSTOM CURSOR
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorRing = document.querySelector('.cursor-ring');
+    // 2. CUSTOM CURSOR - REMOVED (adds nothing, causes conflicts)
+    // Custom cursor functionality removed - wasn't adding value
 
-    if (cursorDot && cursorRing && window.matchMedia('(hover: hover)').matches) {
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
-        });
-
-        // Smooth ring follow
-        function animateRing() {
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            cursorRing.style.left = ringX + 'px';
-            cursorRing.style.top = ringY + 'px';
-            requestAnimationFrame(animateRing);
-        }
-        animateRing();
-
-        // Hover effect on interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, .btn, .pricing-card, .testimonial-card, .faq-item');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
-        });
-
-        // Click effect
-        document.addEventListener('mousedown', () => cursorRing.classList.add('click'));
-        document.addEventListener('mouseup', () => cursorRing.classList.remove('click'));
-    }
 
     // 3. SCROLL PROGRESS BAR
     const scrollProgress = document.getElementById('scrollProgress');
@@ -693,56 +660,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 6. 3D TILT EFFECT ON CARDS
-    const tiltCards = document.querySelectorAll('.pricing-card, .method-step, .testimonial-card, .blog-card');
+    // 6. 3D TILT EFFECT - REMOVED (conflicts with reveal animations)
+    // Keeping cards simple with just hover lift
 
-    tiltCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+    // 7. MAGNETIC BUTTON EFFECT - REMOVED (causes jitter, conflicts with hover)
+    // Keeping buttons with simple shake animation on hover
 
-            const tiltX = (y - centerY) / 20;
-            const tiltY = (centerX - x) / 20;
-
-            card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-8px)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-        });
-    });
-
-    // 7. MAGNETIC BUTTON EFFECT (with transition fix)
-    const magneticBtns = document.querySelectorAll('.btn-primary, .btn-secondary');
-
-    magneticBtns.forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
-            // Reduce transition to avoid jitter during magnetic effect
-            btn.style.transition = 'transform 0.05s ease-out';
-        });
-
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-
-            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
-        });
-
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transition = 'transform 0.25s ease';
-            btn.style.transform = 'translate(0, 0)';
-        });
-    });
-
-    // 8. TEXT REVEAL - Split hero title into characters (if needed)
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle && !heroTitle.classList.contains('text-split')) {
-        // Already handled by CSS animations
-    }
+    // 8. Buttons get a simple shake on hover instead (defined in CSS)
 
     // 9. Intersection Observer for enhanced reveal
     const observerOptions = {

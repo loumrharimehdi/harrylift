@@ -1065,7 +1065,4 @@ html {
     animation: rumSway 0.4s ease-out;
 }
 
-/* Stars in testimonials sparkle */
-.testimonial-stars {
-    animation: oceanSparkle 3s ease-in-out infinite;
-}
+/* Stars in testimonials - static (animation removed for cleaner UX) */

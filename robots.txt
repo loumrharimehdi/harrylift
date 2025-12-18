@@ -1,0 +1,12 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.harrylift.com/sitemap.xml
+
+# Crawl-delay (optional, be nice to servers)
+Crawl-delay: 1
+
+# Disallow admin/private areas (none for now)
+# Disallow: /admin/
