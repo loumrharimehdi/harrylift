@@ -1,0 +1,493 @@
+/* ============================================
+   HARRY LIFT - UTILITIES
+   ============================================ */
+
+/* ============== PRELOADER ============== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-ocean);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-palm {
+    font-size: 4rem;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.preloader-text {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--white);
+    margin: var(--space-4) 0;
+}
+
+.preloader-bar {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.preloader-progress {
+    height: 100%;
+    background: var(--white);
+    border-radius: var(--radius-full);
+    animation: preloaderProgress 1s ease-in-out forwards;
+}
+
+@keyframes preloaderProgress {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* ============== SCROLL PROGRESS ============== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--gradient-cta);
+    z-index: 1000;
+    transition: width 0.1s linear;
+}
+
+/* ============== SCROLL TO TOP ============== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-cta);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 99;
+    box-shadow: var(--shadow-lg);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+}
+
+.scroll-to-top span {
+    font-size: 1.5rem;
+}
+
+/* ============== SKIP LINK (A11Y) ============== */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--sea-deep);
+    color: white;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-lg);
+    z-index: 100000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* ============== FOCUS STYLES ============== */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 3px solid var(--sea-turquoise);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* ============== CONFETTI ============== */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+}
+
+/* ============== SAND EFFECT ============== */
+#sandEffectContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.sand-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--sand-dark);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sandFall 1s ease-out forwards;
+}
+
+.sand-particle:nth-child(odd) {
+    background: var(--sand-medium);
+    width: 4px;
+    height: 4px;
+}
+
+.sand-particle:nth-child(3n) {
+    background: var(--sand-accent);
+    width: 5px;
+    height: 5px;
+}
+
+@keyframes sandFall {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx), var(--dy)) scale(0.3);
+    }
+}
+
+/* ============== RAIN MODE ============== */
+.rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    display: none;
+}
+
+body.rain-mode .rain-container {
+    display: block;
+}
+
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(transparent, rgba(174, 194, 224, 0.8));
+    animation: rainFall linear infinite;
+}
+
+@keyframes rainFall {
+    0% {
+        transform: translateY(-100vh);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.lightning-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 51;
+}
+
+.rain-mode-message {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(45, 42, 38, 0.9);
+    color: white;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+body.rain-mode .rain-mode-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Rain mode body styles */
+body.rain-mode {
+    background-color: #1a1a2e;
+}
+
+body.rain-mode .hero {
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+}
+
+body.rain-mode .problem-solution,
+body.rain-mode .pricing,
+body.rain-mode .about,
+body.rain-mode .blog {
+    background: #1a1a2e;
+}
+
+body.rain-mode .method,
+body.rain-mode .testimonials,
+body.rain-mode .results-testimonials,
+body.rain-mode .faq,
+body.rain-mode .lead-magnet,
+body.rain-mode .contact-section {
+    background: #16161d;
+}
+
+body.rain-mode h1,
+body.rain-mode h2,
+body.rain-mode h3,
+body.rain-mode h4 {
+    color: var(--white);
+}
+
+body.rain-mode p {
+    color: var(--gray-light);
+}
+
+body.rain-mode .navbar.scrolled {
+    background: rgba(26, 26, 46, 0.9);
+}
+
+body.rain-mode .pricing-card,
+body.rain-mode .testimonial-card,
+body.rain-mode .method-step,
+body.rain-mode .blog-card,
+body.rain-mode .faq-item,
+body.rain-mode .contact-wrapper,
+body.rain-mode .lead-magnet-form {
+    background: #2d2d3a;
+}
+
+body.rain-mode .hero-content {
+    background: rgba(45, 45, 58, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.rain-mode .hero-badge {
+    background: #2d2d3a;
+    color: var(--sea-light);
+}
+
+/* ============== CHATBOT ============== */
+.chatbot-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chatbot-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-cta);
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease;
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    max-height: 500px;
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chatbot-widget.open .chatbot-window {
+    display: flex;
+}
+
+.chatbot-header {
+    background: var(--gradient-cta);
+    color: var(--white);
+    padding: var(--space-4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.chatbot-avatar {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.chatbot-name {
+    font-weight: 600;
+}
+
+.chatbot-status {
+    font-size: var(--text-xs);
+    opacity: 0.8;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: var(--space-4);
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.chatbot-message {
+    margin-bottom: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    max-width: 85%;
+}
+
+.chatbot-message.bot {
+    background: var(--sand-light);
+    margin-right: auto;
+}
+
+.chatbot-message.user {
+    background: var(--gradient-cta);
+    color: var(--white);
+    margin-left: auto;
+}
+
+.chatbot-quick-actions {
+    padding: var(--space-3);
+    border-top: 1px solid var(--sand-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.chatbot-quick-btn {
+    padding: var(--space-2) var(--space-3);
+    background: var(--sand-light);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.chatbot-quick-btn:hover {
+    background: var(--sea-light);
+}
+
+.chatbot-input-area {
+    display: flex;
+    padding: var(--space-3);
+    border-top: 1px solid var(--sand-light);
+    gap: var(--space-2);
+}
+
+.chatbot-input {
+    flex: 1;
+    padding: var(--space-3);
+    border: 1px solid var(--sand-medium);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+}
+
+.chatbot-send {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient-cta);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    .chatbot-window {
+        width: calc(100vw - 40px);
+        right: -10px;
+    }
+}

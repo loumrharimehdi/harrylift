@@ -1,0 +1,87 @@
+/* ============================================
+   HARRY LIFT - CSS VARIABLES
+   Design Tokens & Theme
+   ============================================ */
+
+:root {
+    /* Colors - Sable & Mer */
+    --sand-light: #F5E6D3;
+    --sand-medium: #E8D4BE;
+    --sand-dark: #D4B896;
+    --sand-accent: #C4A77D;
+
+    --sea-light: #B8E4F0;
+    --sea-sky: #87CEEB;
+    --sea-turquoise: #40E0D0;
+    --sea-deep: #20B2AA;
+
+    --white: #FFFEF9;
+    --white-pure: #FFFFFF;
+    --black-soft: #2D2A26;
+    --gray-warm: #6B6560;
+    --gray-light: #A09890;
+
+    /* Gradients */
+    --gradient-sunset: linear-gradient(135deg, #FFB347 0%, #FF7F50 50%, #FF6B6B 100%);
+    --gradient-ocean: linear-gradient(135deg, #40E0D0 0%, #87CEEB 50%, #B8E4F0 100%);
+    --gradient-sand: linear-gradient(180deg, #F5E6D3 0%, #E8D4BE 100%);
+    --gradient-cta: linear-gradient(135deg, #1E9B8F 0%, #167A70 100%);
+    --gradient-cta-hover: linear-gradient(135deg, #167A70 0%, #0F5F57 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(245, 230, 211, 0.9) 0%, rgba(245, 230, 211, 0.7) 50%, rgba(184, 228, 240, 0.3) 100%);
+
+    /* Typography */
+    --font-primary: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Outfit', sans-serif;
+
+    /* Font Sizes */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 4px 8px rgba(45, 42, 38, 0.12), 0 2px 4px rgba(255, 179, 71, 0.08);
+    --shadow-md: 0 8px 20px -4px rgba(45, 42, 38, 0.18), 0 4px 10px -2px rgba(255, 179, 71, 0.12);
+    --shadow-lg: 0 20px 40px -8px rgba(45, 42, 38, 0.2), 0 12px 24px -6px rgba(255, 179, 71, 0.15);
+    --shadow-xl: 0 30px 60px -12px rgba(45, 42, 38, 0.25), 0 18px 36px -8px rgba(255, 179, 71, 0.18);
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+
+    /* Z-index */
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-modal: 300;
+    --z-toast: 400;
+}

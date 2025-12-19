@@ -1,0 +1,360 @@
+/* ============================================
+   HARRY LIFT - HERO SECTION
+   ============================================ */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #87CEEB 0%, #B8E4F0 40%, #40E0D0 70%, #20B2AA 100%);
+    padding-top: var(--space-8);
+}
+
+/* Tropical Scene */
+.hero-tropical-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.tropical-sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(180deg, #1e90ff 0%, #87CEEB 30%, #B8E4F0 60%, #FFFACD 100%);
+}
+
+/* Animated Sun */
+.tropical-sun {
+    position: absolute;
+    top: 8%;
+    right: 15%;
+    width: 150px;
+    height: 150px;
+    z-index: 2;
+}
+
+.sun-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 165, 0, 0.5);
+}
+
+.sun-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: sunPulse 4s ease-in-out infinite;
+}
+
+.sun-rays {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    animation: rotateSun 30s linear infinite;
+}
+
+.sun-ray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 60px;
+    background: linear-gradient(to top, rgba(255, 215, 0, 0.8), transparent);
+    transform-origin: bottom center;
+    border-radius: 2px;
+}
+
+.sun-ray:nth-child(1) {
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.sun-ray:nth-child(2) {
+    transform: translate(-50%, -100%) rotate(45deg);
+}
+
+.sun-ray:nth-child(3) {
+    transform: translate(-50%, -100%) rotate(90deg);
+}
+
+.sun-ray:nth-child(4) {
+    transform: translate(-50%, -100%) rotate(135deg);
+}
+
+.sun-ray:nth-child(5) {
+    transform: translate(-50%, -100%) rotate(180deg);
+}
+
+.sun-ray:nth-child(6) {
+    transform: translate(-50%, -100%) rotate(225deg);
+}
+
+.sun-ray:nth-child(7) {
+    transform: translate(-50%, -100%) rotate(270deg);
+}
+
+.sun-ray:nth-child(8) {
+    transform: translate(-50%, -100%) rotate(315deg);
+}
+
+@keyframes rotateSun {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes sunPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* Ocean Waves */
+.tropical-ocean {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    height: 20%;
+    z-index: 3;
+}
+
+.ocean-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+}
+
+.ocean-wave-1 {
+    animation: waveFlow 8s ease-in-out infinite;
+}
+
+.ocean-wave-2 {
+    animation: waveFlow 6s ease-in-out infinite reverse;
+    animation-delay: -2s;
+}
+
+.ocean-wave-3 {
+    animation: waveFlow 10s ease-in-out infinite;
+    animation-delay: -4s;
+}
+
+@keyframes waveFlow {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-25%);
+    }
+}
+
+/* Sandy Beach */
+.tropical-beach {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15%;
+    z-index: 4;
+}
+
+.beach-sand {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.beach-detail {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: beachFloat 3s ease-in-out infinite;
+}
+
+.shell-1 {
+    bottom: 20%;
+    left: 15%;
+}
+
+.shell-2 {
+    bottom: 30%;
+    right: 20%;
+    animation-delay: 0.5s;
+}
+
+.starfish {
+    bottom: 15%;
+    left: 35%;
+    animation-delay: 1s;
+}
+
+@keyframes beachFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+}
+
+/* Hero Wave Bottom */
+.hero-wave-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 6;
+}
+
+.hero-wave-bottom svg {
+    display: block;
+    width: 100%;
+    height: 100px;
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 10;
+    padding: var(--space-8);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--white);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--sea-deep);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-badge:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+    background: var(--sea-light);
+}
+
+.hero-title {
+    font-size: var(--text-6xl);
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+    color: var(--black-soft);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.hero-title .emoji {
+    display: inline-block;
+}
+
+.hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--gray-warm);
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-bottom: var(--space-8);
+}
+
+/* Mobile Hero */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: var(--text-4xl);
+    }
+
+    .tropical-sun {
+        width: 100px;
+        height: 100px;
+        top: 5%;
+        right: 10%;
+    }
+
+    .sun-core {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sun-glow {
+        width: 80px;
+        height: 80px;
+    }
+
+    .sun-rays {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sun-ray {
+        height: 40px;
+    }
+
+    .hero-content {
+        padding: var(--space-4);
+        margin: 0 var(--space-4);
+    }
+}

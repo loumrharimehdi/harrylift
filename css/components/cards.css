@@ -1,0 +1,521 @@
+/* ============================================
+   HARRY LIFT - CARDS (All card types)
+   ============================================ */
+
+/* Base Card Hover Effect */
+.pricing-card,
+.method-step,
+.testimonial-card,
+.blog-card,
+.transformation-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover,
+.method-step:hover,
+.testimonial-card:hover,
+.blog-card:hover,
+.transformation-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* ============== PRICING CARDS ============== */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    align-items: stretch;
+}
+
+@media (max-width: 992px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .pricing-card.popular {
+        grid-column: span 2;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .pricing-card.popular {
+        grid-column: span 1;
+        transform: scale(1);
+    }
+}
+
+.pricing-card {
+    background: var(--sand-light);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card.popular {
+    background: var(--gradient-ocean);
+    transform: scale(1.05);
+    border: 2px solid var(--sea-turquoise);
+}
+
+.pricing-card.popular:hover {
+    transform: scale(1.05) translateY(-8px);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-sunset);
+    color: var(--white);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid rgba(45, 42, 38, 0.1);
+}
+
+.pricing-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-4);
+}
+
+.pricing-name {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+.pricing-price {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--sea-deep);
+}
+
+.pricing-price span {
+    font-size: var(--text-base);
+    font-weight: 400;
+    color: var(--gray-warm);
+}
+
+.pricing-features {
+    flex: 1;
+    margin-bottom: var(--space-6);
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    color: var(--gray-warm);
+    font-size: var(--text-sm);
+}
+
+.pricing-features li::before {
+    content: '✓';
+    color: var(--sea-deep);
+    font-weight: bold;
+}
+
+/* ============== METHOD CARDS ============== */
+.method-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+}
+
+@media (max-width: 992px) {
+    .method-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .method-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+.method-step {
+    background: var(--white);
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.method-step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-cta);
+    color: var(--white);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-4);
+}
+
+.method-step-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-4);
+    transition: transform 0.2s ease;
+}
+
+.method-step:hover .method-step-icon {
+    transform: scale(1.1);
+}
+
+.method-step h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+}
+
+.method-step p {
+    font-size: var(--text-sm);
+}
+
+/* ============== TESTIMONIAL CARDS ============== */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+@media (max-width: 992px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.testimonial-card {
+    background: var(--white);
+    padding: var(--space-6);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.testimonial-stars {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-4);
+}
+
+.testimonial-text {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-ocean);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.testimonial-info h4 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+}
+
+.testimonial-info p {
+    font-size: var(--text-xs);
+    color: var(--gray-light);
+}
+
+/* ============== BLOG CARDS ============== */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+@media (max-width: 992px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.blog-card {
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+}
+
+.blog-card-image {
+    height: 150px;
+    background: var(--gradient-ocean);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+}
+
+.blog-card-category {
+    position: absolute;
+    top: var(--space-3);
+    left: var(--space-3);
+    background: var(--white);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 600;
+}
+
+.blog-card-content {
+    padding: var(--space-6);
+}
+
+.blog-card-title {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+}
+
+.blog-card-excerpt {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+}
+
+.blog-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-card-date {
+    font-size: var(--text-xs);
+    color: var(--gray-light);
+}
+
+.blog-card-read-more {
+    font-weight: 600;
+    color: var(--sea-turquoise);
+    transition: color 0.2s ease;
+}
+
+.blog-card:hover .blog-card-read-more {
+    color: var(--sea-deep);
+}
+
+/* ============== TRANSFORMATION CARDS ============== */
+.transformations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+
+@media (max-width: 992px) {
+    .transformations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .transformations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.transformation-card {
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.transformation-images {
+    display: flex;
+    position: relative;
+}
+
+.transformation-before,
+.transformation-after {
+    flex: 1;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.transformation-before {
+    background: linear-gradient(135deg, #FFF5F5, #FED7D7);
+}
+
+.transformation-after {
+    background: linear-gradient(135deg, #E6FFFA, #B2F5EA);
+}
+
+.transformation-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    margin-top: var(--space-2);
+}
+
+.transformation-arrow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+}
+
+.transformation-info {
+    padding: var(--space-4);
+    text-align: center;
+}
+
+.transformation-name {
+    font-size: var(--text-base);
+    font-weight: 600;
+}
+
+.transformation-result {
+    font-size: var(--text-sm);
+    color: var(--sea-deep);
+    font-weight: 600;
+}
+
+.transformation-duration {
+    font-size: var(--text-xs);
+    color: var(--gray-light);
+}
+
+/* ============== PROBLEM/SOLUTION CARDS ============== */
+.ps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+}
+
+@media (max-width: 768px) {
+    .ps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ps-card {
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.ps-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.ps-card.problem {
+    background: linear-gradient(135deg, #FFF5F5 0%, #FED7D7 100%);
+    border-color: rgba(255, 99, 71, 0.2);
+}
+
+.ps-card.solution {
+    background: linear-gradient(135deg, #E6FFFA 0%, #B2F5EA 100%);
+    border-color: rgba(64, 224, 208, 0.3);
+}
+
+.ps-card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-5);
+}
+
+.ps-card.problem .ps-card-icon {
+    background: rgba(255, 99, 71, 0.15);
+}
+
+.ps-card.solution .ps-card-icon {
+    background: rgba(64, 224, 208, 0.2);
+}
+
+.ps-card h3 {
+    margin-bottom: var(--space-4);
+}
+
+.ps-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.ps-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    color: var(--gray-warm);
+}
+
+.ps-card li::before {
+    content: '✗';
+    color: #FF6347;
+    font-weight: bold;
+}
+
+.ps-card.solution li::before {
+    content: '✓';
+    color: var(--sea-deep);
+}
