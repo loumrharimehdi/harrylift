@@ -63,17 +63,6 @@
     }
 }
 
-/* ============== SCROLL PROGRESS ============== */
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background: var(--gradient-cta);
-    z-index: 1000;
-    transition: width 0.1s linear;
-}
-
 /* ============== SCROLL TO TOP ============== */
 .scroll-to-top {
     position: fixed;
@@ -251,7 +240,7 @@ body.rain-mode .rain-container {
     top: 100px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(45, 42, 38, 0.9);
+    background: rgba(45, 42, 38, 0.95);
     color: white;
     padding: var(--space-4) var(--space-6);
     border-radius: var(--radius-lg);
@@ -267,15 +256,16 @@ body.rain-mode .rain-mode-message.show {
     visibility: visible;
 }
 
-/* Rain mode body styles */
+/* ============== DARK/RAIN MODE - COMPLETE STYLES ============== */
 body.rain-mode {
     background-color: #1a1a2e;
 }
 
 body.rain-mode .hero {
-    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 50%, #1a1a2e 100%);
 }
 
+/* Sections backgrounds */
 body.rain-mode .problem-solution,
 body.rain-mode .pricing,
 body.rain-mode .about,
@@ -292,39 +282,240 @@ body.rain-mode .contact-section {
     background: #16161d;
 }
 
+/* Typography */
 body.rain-mode h1,
 body.rain-mode h2,
 body.rain-mode h3,
-body.rain-mode h4 {
-    color: var(--white);
+body.rain-mode h4,
+body.rain-mode h5,
+body.rain-mode h6 {
+    color: #ffffff;
 }
 
-body.rain-mode p {
-    color: var(--gray-light);
+body.rain-mode p,
+body.rain-mode li,
+body.rain-mode span {
+    color: #a0aec0;
+}
+
+body.rain-mode .section-header p {
+    color: #a0aec0;
+}
+
+/* Navbar */
+body.rain-mode .navbar {
+    background: transparent;
 }
 
 body.rain-mode .navbar.scrolled {
-    background: rgba(26, 26, 46, 0.9);
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
 }
 
+body.rain-mode .navbar-logo {
+    color: #ffffff;
+}
+
+body.rain-mode .navbar-links a {
+    color: #a0aec0;
+}
+
+body.rain-mode .navbar-links a:hover {
+    color: #ffffff;
+}
+
+body.rain-mode .navbar-toggle span {
+    background: #ffffff;
+}
+
+body.rain-mode .navbar-menu {
+    background: #1a1a2e;
+}
+
+/* Cards */
 body.rain-mode .pricing-card,
 body.rain-mode .testimonial-card,
 body.rain-mode .method-step,
 body.rain-mode .blog-card,
 body.rain-mode .faq-item,
-body.rain-mode .contact-wrapper,
-body.rain-mode .lead-magnet-form {
+body.rain-mode .transformation-card {
     background: #2d2d3a;
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
+body.rain-mode .ps-card.problem {
+    background: linear-gradient(135deg, #3d2a2a 0%, #4a2c2c 100%);
+}
+
+body.rain-mode .ps-card.solution {
+    background: linear-gradient(135deg, #1a3a3a 0%, #1d4040 100%);
+}
+
+/* Hero */
 body.rain-mode .hero-content {
-    background: rgba(45, 45, 58, 0.8);
+    background: rgba(45, 45, 58, 0.9);
     border-color: rgba(255, 255, 255, 0.1);
 }
 
 body.rain-mode .hero-badge {
     background: #2d2d3a;
     color: var(--sea-light);
+}
+
+body.rain-mode .hero-title {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.rain-mode .hero-subtitle {
+    color: #a0aec0;
+}
+
+/* Sun becomes moon */
+body.rain-mode .tropical-sun .sun-core {
+    background: linear-gradient(135deg, #c0c0c0 0%, #808080 50%, #606060 100%);
+    box-shadow: 0 0 30px rgba(200, 200, 200, 0.3);
+}
+
+body.rain-mode .tropical-sun .sun-glow {
+    background: radial-gradient(circle, rgba(200, 200, 200, 0.2) 0%, transparent 70%);
+}
+
+body.rain-mode .tropical-sun .sun-ray {
+    background: linear-gradient(to top, rgba(200, 200, 200, 0.3), transparent);
+}
+
+body.rain-mode .tropical-sky {
+    background: linear-gradient(180deg, #0a0a14 0%, #1a1a2e 50%, #2d3748 100%);
+}
+
+body.rain-mode .tropical-ocean svg path {
+    opacity: 0.3;
+}
+
+body.rain-mode .tropical-beach svg path {
+    fill: #2d2d3a;
+}
+
+/* Wave separators */
+body.rain-mode .wave-separator-ocean {
+    background: linear-gradient(180deg, #1a1a2e 0%, transparent 20%);
+}
+
+body.rain-mode .wave-separator-sunset {
+    background: linear-gradient(180deg, #16161d 0%, transparent 20%);
+}
+
+body.rain-mode .wave-path.wave-back {
+    fill: rgba(100, 100, 120, 0.3);
+}
+
+body.rain-mode .wave-path.wave-mid {
+    fill: rgba(80, 80, 100, 0.4);
+}
+
+body.rain-mode .wave-path.wave-front {
+    fill: rgba(60, 60, 80, 0.5);
+}
+
+/* Forms & inputs */
+body.rain-mode .contact-wrapper,
+body.rain-mode .lead-magnet-form {
+    background: #2d2d3a;
+}
+
+body.rain-mode .form-group input,
+body.rain-mode .form-group select,
+body.rain-mode .form-group textarea {
+    background: #1a1a2e;
+    border-color: #3d3d4a;
+    color: #ffffff;
+}
+
+body.rain-mode .form-group label {
+    color: #a0aec0;
+}
+
+/* About section */
+body.rain-mode .about-image-wrapper {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+body.rain-mode .about-stat-number {
+    color: var(--sea-light);
+}
+
+/* CTA section */
+body.rain-mode .cta-section {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+body.rain-mode .cta-guarantee {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer */
+body.rain-mode .footer {
+    background: #0a0a14;
+}
+
+body.rain-mode .footer-brand p,
+body.rain-mode .footer-column li,
+body.rain-mode .footer-column a {
+    color: #6b7280;
+}
+
+/* Chatbot */
+body.rain-mode .chatbot-window {
+    background: #2d2d3a;
+}
+
+body.rain-mode .chatbot-message.bot {
+    background: #1a1a2e;
+    color: #a0aec0;
+}
+
+body.rain-mode .chatbot-input {
+    background: #1a1a2e;
+    border-color: #3d3d4a;
+    color: #ffffff;
+}
+
+body.rain-mode .chatbot-quick-btn {
+    background: #1a1a2e;
+    color: #a0aec0;
+}
+
+/* FAQ */
+body.rain-mode .faq-question {
+    color: #ffffff;
+}
+
+body.rain-mode .faq-answer-content {
+    color: #a0aec0;
+}
+
+/* Pricing specific */
+body.rain-mode .pricing-card.popular {
+    background: linear-gradient(135deg, #1a3a3a 0%, #1d4040 100%);
+}
+
+body.rain-mode .pricing-price {
+    color: var(--sea-light);
+}
+
+body.rain-mode .pricing-features li {
+    color: #a0aec0;
+}
+
+/* Lead magnet */
+body.rain-mode .lead-magnet-wrapper {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+/* Subsection headers */
+body.rain-mode .subsection-header h3 {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
 }
 
 /* ============== CHATBOT ============== */
